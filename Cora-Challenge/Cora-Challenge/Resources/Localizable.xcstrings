@@ -1,0 +1,125 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "EnterYourCPF" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qual seu CPF?"
+          }
+        }
+      }
+    },
+    "EnterYourPassword" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digite sua senha de acesso"
+          }
+        }
+      }
+    },
+    "ForgotPasswordButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esqueci minha senha"
+          }
+        }
+      }
+    },
+    "Já sou cliente" : {
+
+    },
+    "Login Cora" : {
+
+    },
+    "NextButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Próximo"
+          }
+        }
+      }
+    },
+    "PrimaryButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quero fazer parte!"
+          }
+        }
+      }
+    },
+    "PrimarySecondaryButtonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Já sou cliente"
+          }
+        }
+      }
+    },
+    "Quero fazer parte!" : {
+
+    },
+    "StartDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sua empresa livre burocracias e de taxas para gerar boletos, fazer transferências e pagamentos."
+          }
+        }
+      }
+    },
+    "StartTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conta Digital PJ"
+          }
+        }
+      }
+    },
+    "StartTitleComplement" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poderosamente simples"
+          }
+        }
+      }
+    },
+    "WelcomeBack" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bem-vindo de volta!"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

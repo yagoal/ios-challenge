@@ -1,0 +1,807 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20CC52E32C2C97370039F565 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC52E22C2C97370039F565 /* AuthResponse.swift */; };
+		20CC55632C2C99730039F565 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC55622C2C99730039F565 /* ApiClient.swift */; };
+		20F705DB2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705DA2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift */; };
+		20F705DD2C2B6AFC00E5C96A /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705DC2C2B6AFC00E5C96A /* StartView.swift */; };
+		20F705DF2C2B6AFE00E5C96A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20F705DE2C2B6AFE00E5C96A /* Assets.xcassets */; };
+		20F705E32C2B6AFE00E5C96A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20F705E22C2B6AFE00E5C96A /* Preview Assets.xcassets */; };
+		20F705ED2C2B6AFE00E5C96A /* Cora_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705EC2C2B6AFE00E5C96A /* Cora_ChallengeTests.swift */; };
+		20F705F72C2B6AFE00E5C96A /* Cora_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705F62C2B6AFE00E5C96A /* Cora_ChallengeUITests.swift */; };
+		20F705F92C2B6AFE00E5C96A /* Cora_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705F82C2B6AFE00E5C96A /* Cora_ChallengeUITestsLaunchTests.swift */; };
+		20F706072C2B781500E5C96A /* CoraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F706062C2B781500E5C96A /* CoraButton.swift */; };
+		20F706092C2B79EA00E5C96A /* Colors+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F706082C2B79EA00E5C96A /* Colors+Extension.swift */; };
+		20F708862C2B7B2A00E5C96A /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F708852C2B7B2A00E5C96A /* Font+Extension.swift */; };
+		20F70D7D2C2B841C00E5C96A /* CoraButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F70D7C2C2B841C00E5C96A /* CoraButtonConfiguration.swift */; };
+		20F70D802C2B8B4900E5C96A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F70D7F2C2B8B4900E5C96A /* AppCoordinator.swift */; };
+		20F70D822C2B8BC200E5C96A /* StartViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F70D812C2B8BC200E5C96A /* StartViewRepresentable.swift */; };
+		20F70D862C2B99CA00E5C96A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F70D852C2B99CA00E5C96A /* LoginView.swift */; };
+		20F70D882C2B99DD00E5C96A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F70D872C2B99DD00E5C96A /* LoginViewModel.swift */; };
+		20F710042C2BA8E500E5C96A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F710032C2BA8E500E5C96A /* String+Extensions.swift */; };
+		20F710062C2BAE3700E5C96A /* MaskedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F710052C2BAE3700E5C96A /* MaskedTextField.swift */; };
+		20F7100A2C2BAF5F00E5C96A /* MaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F710092C2BAF5F00E5C96A /* MaskProtocol.swift */; };
+		20F7100C2C2BAFA900E5C96A /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F7100B2C2BAFA900E5C96A /* PasswordField.swift */; };
+		20F710132C2C486000E5C96A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 20F710122C2C486000E5C96A /* Localizable.xcstrings */; };
+		20F712902C2C683800E5C96A /* CoraNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F7128F2C2C683800E5C96A /* CoraNavigationController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		20F705E92C2B6AFE00E5C96A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20F705CF2C2B6AFC00E5C96A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20F705D62C2B6AFC00E5C96A;
+			remoteInfo = "Cora-Challenge";
+		};
+		20F705F32C2B6AFE00E5C96A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20F705CF2C2B6AFC00E5C96A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20F705D62C2B6AFC00E5C96A;
+			remoteInfo = "Cora-Challenge";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		20CC52E22C2C97370039F565 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		20CC55622C2C99730039F565 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		20F705D72C2B6AFC00E5C96A /* Cora-Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cora-Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20F705DA2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cora_ChallengeApp.swift; sourceTree = "<group>"; };
+		20F705DC2C2B6AFC00E5C96A /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		20F705DE2C2B6AFE00E5C96A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		20F705E02C2B6AFE00E5C96A /* Cora_Challenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cora_Challenge.entitlements; sourceTree = "<group>"; };
+		20F705E22C2B6AFE00E5C96A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		20F705E82C2B6AFE00E5C96A /* Cora-ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cora-ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20F705EC2C2B6AFE00E5C96A /* Cora_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cora_ChallengeTests.swift; sourceTree = "<group>"; };
+		20F705F22C2B6AFE00E5C96A /* Cora-ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cora-ChallengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20F705F62C2B6AFE00E5C96A /* Cora_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cora_ChallengeUITests.swift; sourceTree = "<group>"; };
+		20F705F82C2B6AFE00E5C96A /* Cora_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cora_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		20F706062C2B781500E5C96A /* CoraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoraButton.swift; sourceTree = "<group>"; };
+		20F706082C2B79EA00E5C96A /* Colors+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extension.swift"; sourceTree = "<group>"; };
+		20F708852C2B7B2A00E5C96A /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		20F70D7C2C2B841C00E5C96A /* CoraButtonConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoraButtonConfiguration.swift; sourceTree = "<group>"; };
+		20F70D7F2C2B8B4900E5C96A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		20F70D812C2B8BC200E5C96A /* StartViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewRepresentable.swift; sourceTree = "<group>"; };
+		20F70D852C2B99CA00E5C96A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		20F70D872C2B99DD00E5C96A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		20F710032C2BA8E500E5C96A /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		20F710052C2BAE3700E5C96A /* MaskedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskedTextField.swift; sourceTree = "<group>"; };
+		20F710092C2BAF5F00E5C96A /* MaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskProtocol.swift; sourceTree = "<group>"; };
+		20F7100B2C2BAFA900E5C96A /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
+		20F710122C2C486000E5C96A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		20F7128F2C2C683800E5C96A /* CoraNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoraNavigationController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		20F705D42C2B6AFC00E5C96A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20F705E52C2B6AFE00E5C96A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20F705EF2C2B6AFE00E5C96A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20CC52E42C2C97570039F565 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				20F7150C2C2C953C00E5C96A /* Models */,
+				20CC55622C2C99730039F565 /* ApiClient.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		20CC52E52C2C97660039F565 /* StatementList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StatementList;
+			sourceTree = "<group>";
+		};
+		20CC52E62C2C97E00039F565 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		20F705CE2C2B6AFC00E5C96A = {
+			isa = PBXGroup;
+			children = (
+				20F705D92C2B6AFC00E5C96A /* Cora-Challenge */,
+				20F705EB2C2B6AFE00E5C96A /* Cora-ChallengeTests */,
+				20F705F52C2B6AFE00E5C96A /* Cora-ChallengeUITests */,
+				20F705D82C2B6AFC00E5C96A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		20F705D82C2B6AFC00E5C96A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				20F705D72C2B6AFC00E5C96A /* Cora-Challenge.app */,
+				20F705E82C2B6AFE00E5C96A /* Cora-ChallengeTests.xctest */,
+				20F705F22C2B6AFE00E5C96A /* Cora-ChallengeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20F705D92C2B6AFC00E5C96A /* Cora-Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				20F7150B2C2C952D00E5C96A /* Data */,
+				20F705E12C2B6AFE00E5C96A /* Preview Content */,
+				20F705E02C2B6AFE00E5C96A /* Cora_Challenge.entitlements */,
+				20F7100D2C2C479F00E5C96A /* Resources */,
+				20F70D842C2B97DE00E5C96A /* Login */,
+				20F70D832C2B8D0400E5C96A /* Start */,
+				20F70D7E2C2B89F700E5C96A /* Core */,
+				20F708842C2B7AFA00E5C96A /* Extensions */,
+				20F706052C2B77CB00E5C96A /* Components */,
+			);
+			path = "Cora-Challenge";
+			sourceTree = "<group>";
+		};
+		20F705E12C2B6AFE00E5C96A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				20F705E22C2B6AFE00E5C96A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		20F705EB2C2B6AFE00E5C96A /* Cora-ChallengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				20F705EC2C2B6AFE00E5C96A /* Cora_ChallengeTests.swift */,
+			);
+			path = "Cora-ChallengeTests";
+			sourceTree = "<group>";
+		};
+		20F705F52C2B6AFE00E5C96A /* Cora-ChallengeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				20F705F62C2B6AFE00E5C96A /* Cora_ChallengeUITests.swift */,
+				20F705F82C2B6AFE00E5C96A /* Cora_ChallengeUITestsLaunchTests.swift */,
+			);
+			path = "Cora-ChallengeUITests";
+			sourceTree = "<group>";
+		};
+		20F706052C2B77CB00E5C96A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				20F7128E2C2C682D00E5C96A /* Navigation */,
+				20F710072C2BAF2700E5C96A /* TextFields */,
+				20F70D7B2C2B840E00E5C96A /* CoraButton */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		20F708842C2B7AFA00E5C96A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				20F706082C2B79EA00E5C96A /* Colors+Extension.swift */,
+				20F708852C2B7B2A00E5C96A /* Font+Extension.swift */,
+				20F710032C2BA8E500E5C96A /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		20F70D7B2C2B840E00E5C96A /* CoraButton */ = {
+			isa = PBXGroup;
+			children = (
+				20F706062C2B781500E5C96A /* CoraButton.swift */,
+				20F70D7C2C2B841C00E5C96A /* CoraButtonConfiguration.swift */,
+			);
+			path = CoraButton;
+			sourceTree = "<group>";
+		};
+		20F70D7E2C2B89F700E5C96A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				20F70D7F2C2B8B4900E5C96A /* AppCoordinator.swift */,
+				20F70D812C2B8BC200E5C96A /* StartViewRepresentable.swift */,
+				20F705DA2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		20F70D832C2B8D0400E5C96A /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				20F705DC2C2B6AFC00E5C96A /* StartView.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		20F70D842C2B97DE00E5C96A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				20CC52E62C2C97E00039F565 /* Data */,
+				20F70D852C2B99CA00E5C96A /* LoginView.swift */,
+				20F70D872C2B99DD00E5C96A /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		20F710072C2BAF2700E5C96A /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				20F710082C2BAF4200E5C96A /* MaskedTextField */,
+				20F7100B2C2BAFA900E5C96A /* PasswordField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		20F710082C2BAF4200E5C96A /* MaskedTextField */ = {
+			isa = PBXGroup;
+			children = (
+				20F710052C2BAE3700E5C96A /* MaskedTextField.swift */,
+				20F710092C2BAF5F00E5C96A /* MaskProtocol.swift */,
+			);
+			path = MaskedTextField;
+			sourceTree = "<group>";
+		};
+		20F7100D2C2C479F00E5C96A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				20F705DE2C2B6AFE00E5C96A /* Assets.xcassets */,
+				20F710122C2C486000E5C96A /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		20F7128E2C2C682D00E5C96A /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				20F7128F2C2C683800E5C96A /* CoraNavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		20F7150B2C2C952D00E5C96A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				20CC52E52C2C97660039F565 /* StatementList */,
+				20CC52E42C2C97570039F565 /* APIClient */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		20F7150C2C2C953C00E5C96A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				20CC52E22C2C97370039F565 /* AuthResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		20F705D62C2B6AFC00E5C96A /* Cora-Challenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20F705FC2C2B6AFE00E5C96A /* Build configuration list for PBXNativeTarget "Cora-Challenge" */;
+			buildPhases = (
+				20F705D32C2B6AFC00E5C96A /* Sources */,
+				20F705D42C2B6AFC00E5C96A /* Frameworks */,
+				20F705D52C2B6AFC00E5C96A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cora-Challenge";
+			productName = "Cora-Challenge";
+			productReference = 20F705D72C2B6AFC00E5C96A /* Cora-Challenge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		20F705E72C2B6AFE00E5C96A /* Cora-ChallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20F705FF2C2B6AFE00E5C96A /* Build configuration list for PBXNativeTarget "Cora-ChallengeTests" */;
+			buildPhases = (
+				20F705E42C2B6AFE00E5C96A /* Sources */,
+				20F705E52C2B6AFE00E5C96A /* Frameworks */,
+				20F705E62C2B6AFE00E5C96A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20F705EA2C2B6AFE00E5C96A /* PBXTargetDependency */,
+			);
+			name = "Cora-ChallengeTests";
+			productName = "Cora-ChallengeTests";
+			productReference = 20F705E82C2B6AFE00E5C96A /* Cora-ChallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		20F705F12C2B6AFE00E5C96A /* Cora-ChallengeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20F706022C2B6AFE00E5C96A /* Build configuration list for PBXNativeTarget "Cora-ChallengeUITests" */;
+			buildPhases = (
+				20F705EE2C2B6AFE00E5C96A /* Sources */,
+				20F705EF2C2B6AFE00E5C96A /* Frameworks */,
+				20F705F02C2B6AFE00E5C96A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20F705F42C2B6AFE00E5C96A /* PBXTargetDependency */,
+			);
+			name = "Cora-ChallengeUITests";
+			productName = "Cora-ChallengeUITests";
+			productReference = 20F705F22C2B6AFE00E5C96A /* Cora-ChallengeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20F705CF2C2B6AFC00E5C96A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					20F705D62C2B6AFC00E5C96A = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					20F705E72C2B6AFE00E5C96A = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 20F705D62C2B6AFC00E5C96A;
+					};
+					20F705F12C2B6AFE00E5C96A = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 20F705D62C2B6AFC00E5C96A;
+					};
+				};
+			};
+			buildConfigurationList = 20F705D22C2B6AFC00E5C96A /* Build configuration list for PBXProject "Cora-Challenge" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"pt-BR",
+			);
+			mainGroup = 20F705CE2C2B6AFC00E5C96A;
+			productRefGroup = 20F705D82C2B6AFC00E5C96A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				20F705D62C2B6AFC00E5C96A /* Cora-Challenge */,
+				20F705E72C2B6AFE00E5C96A /* Cora-ChallengeTests */,
+				20F705F12C2B6AFE00E5C96A /* Cora-ChallengeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		20F705D52C2B6AFC00E5C96A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20F705E32C2B6AFE00E5C96A /* Preview Assets.xcassets in Resources */,
+				20F705DF2C2B6AFE00E5C96A /* Assets.xcassets in Resources */,
+				20F710132C2C486000E5C96A /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20F705E62C2B6AFE00E5C96A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20F705F02C2B6AFE00E5C96A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20F705D32C2B6AFC00E5C96A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20F712902C2C683800E5C96A /* CoraNavigationController.swift in Sources */,
+				20CC55632C2C99730039F565 /* ApiClient.swift in Sources */,
+				20F705DD2C2B6AFC00E5C96A /* StartView.swift in Sources */,
+				20F710042C2BA8E500E5C96A /* String+Extensions.swift in Sources */,
+				20F708862C2B7B2A00E5C96A /* Font+Extension.swift in Sources */,
+				20F7100A2C2BAF5F00E5C96A /* MaskProtocol.swift in Sources */,
+				20F706092C2B79EA00E5C96A /* Colors+Extension.swift in Sources */,
+				20F70D862C2B99CA00E5C96A /* LoginView.swift in Sources */,
+				20F706072C2B781500E5C96A /* CoraButton.swift in Sources */,
+				20F70D822C2B8BC200E5C96A /* StartViewRepresentable.swift in Sources */,
+				20F705DB2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift in Sources */,
+				20F70D7D2C2B841C00E5C96A /* CoraButtonConfiguration.swift in Sources */,
+				20F70D882C2B99DD00E5C96A /* LoginViewModel.swift in Sources */,
+				20F7100C2C2BAFA900E5C96A /* PasswordField.swift in Sources */,
+				20F710062C2BAE3700E5C96A /* MaskedTextField.swift in Sources */,
+				20CC52E32C2C97370039F565 /* AuthResponse.swift in Sources */,
+				20F70D802C2B8B4900E5C96A /* AppCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20F705E42C2B6AFE00E5C96A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20F705ED2C2B6AFE00E5C96A /* Cora_ChallengeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20F705EE2C2B6AFE00E5C96A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20F705F72C2B6AFE00E5C96A /* Cora_ChallengeUITests.swift in Sources */,
+				20F705F92C2B6AFE00E5C96A /* Cora_ChallengeUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		20F705EA2C2B6AFE00E5C96A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20F705D62C2B6AFC00E5C96A /* Cora-Challenge */;
+			targetProxy = 20F705E92C2B6AFE00E5C96A /* PBXContainerItemProxy */;
+		};
+		20F705F42C2B6AFE00E5C96A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20F705D62C2B6AFC00E5C96A /* Cora-Challenge */;
+			targetProxy = 20F705F32C2B6AFE00E5C96A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		20F705FA2C2B6AFE00E5C96A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		20F705FB2C2B6AFE00E5C96A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		20F705FD2C2B6AFE00E5C96A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Cora-Challenge/Cora_Challenge.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cora-Challenge/Preview Content\"";
+				DEVELOPMENT_TEAM = JNXAHZ4P2R;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yagoaugusto.Cora-Challenge";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		20F705FE2C2B6AFE00E5C96A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Cora-Challenge/Cora_Challenge.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cora-Challenge/Preview Content\"";
+				DEVELOPMENT_TEAM = JNXAHZ4P2R;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yagoaugusto.Cora-Challenge";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		20F706002C2B6AFE00E5C96A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JNXAHZ4P2R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yagoaugusto.Cora-ChallengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cora-Challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cora-Challenge";
+			};
+			name = Debug;
+		};
+		20F706012C2B6AFE00E5C96A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JNXAHZ4P2R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yagoaugusto.Cora-ChallengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cora-Challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cora-Challenge";
+			};
+			name = Release;
+		};
+		20F706032C2B6AFE00E5C96A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JNXAHZ4P2R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yagoaugusto.Cora-ChallengeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Cora-Challenge";
+			};
+			name = Debug;
+		};
+		20F706042C2B6AFE00E5C96A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JNXAHZ4P2R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yagoaugusto.Cora-ChallengeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Cora-Challenge";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		20F705D22C2B6AFC00E5C96A /* Build configuration list for PBXProject "Cora-Challenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20F705FA2C2B6AFE00E5C96A /* Debug */,
+				20F705FB2C2B6AFE00E5C96A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20F705FC2C2B6AFE00E5C96A /* Build configuration list for PBXNativeTarget "Cora-Challenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20F705FD2C2B6AFE00E5C96A /* Debug */,
+				20F705FE2C2B6AFE00E5C96A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20F705FF2C2B6AFE00E5C96A /* Build configuration list for PBXNativeTarget "Cora-ChallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20F706002C2B6AFE00E5C96A /* Debug */,
+				20F706012C2B6AFE00E5C96A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20F706022C2B6AFE00E5C96A /* Build configuration list for PBXNativeTarget "Cora-ChallengeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20F706032C2B6AFE00E5C96A /* Debug */,
+				20F706042C2B6AFE00E5C96A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20F705CF2C2B6AFC00E5C96A /* Project object */;
+}
