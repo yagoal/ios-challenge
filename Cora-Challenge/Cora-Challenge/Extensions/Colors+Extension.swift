@@ -11,8 +11,9 @@ import UIKit
 extension Color {
     static let primary = Color(hex: "#FE3E6D")
     static let surface = Color.white
-    static let primaryText = Color(hex: "#6B7076")
-    static let primaryTextHigh = Color.black
+    static let neutral = Color(hex: "#6B7076")
+    static let neutralHigh = Color.black
+    static let primaryBlue = Color(hex: "#1A93DA")
 
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

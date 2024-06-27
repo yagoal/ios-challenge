@@ -9,44 +9,59 @@ import UIKit
 import SwiftUI
 
 final class AppCoordinator: ObservableObject {
-    private let rootViewController: CoraNavigationController
+    private let rootViewController: UINavigationController
 
-    init(rootViewController: CoraNavigationController) {
+    init(rootViewController: UINavigationController) {
         self.rootViewController = rootViewController
     }
 
     func start() {
         let startView = StartView()
-            .onAppear { [weak self] in self?.setNavigationBarHidden(isHidden: true) }
+            .onAppear { [weak self] in self?.setupHiddenNavigation(isHidden: true) }
             .environmentObject(self)
         let host = UIHostingController(rootView: startView)
-        configureBackButton(for: host)
-
+        rootViewController.isNavigationBarHidden = true
         push(controller: host)
     }
 
     func showCpfFormLogin() {
-        let loginView = LoginView(fieldType: .cpf).environmentObject(self)
+        let loginViewModel = LoginViewModel()
+        let loginView = LoginView(viewModel: loginViewModel)
+            .onAppear { loginViewModel.fieldType = .cpf }
+            .environmentObject(self)
         let host = UIHostingController(rootView: loginView)
         configureBackButton(for: host)
-        setNavigationBarHidden(isHidden: false)
+        rootViewController.isNavigationBarHidden = false
         push(controller: host)
     }
 
-    func showPasswordFormLogin() {
-        let loginView = LoginView(fieldType: .password).environmentObject(self)
+    func showPasswordFormLogin(viewModel: LoginViewModel) {
+        let loginView = LoginView(viewModel: viewModel)
+            .onAppear {
+                viewModel.isValid = false
+                viewModel.fieldType = .password
+            }
+            .environmentObject(self)
         let host = UIHostingController(rootView: loginView)
         configureBackButton(for: host)
-        setNavigationBarHidden(isHidden: false)
+        setupHiddenNavigation(isHidden: false)
         push(controller: host)
+    }
+
+    func showStatementList() {
+        let statementListView = StatementListView().environmentObject(self)
+        let host = UIHostingController(rootView: statementListView)
+        configureBackButton(for: host)
+        setupHiddenNavigation(isHidden: false)
+        push(controller: host)
+    }
+    
+    private func setupHiddenNavigation(isHidden: Bool) {
+        rootViewController.isNavigationBarHidden = isHidden
     }
 
     private func push(controller: UIViewController) {
         rootViewController.pushViewController(controller, animated: true)
-    }
-
-    private func setNavigationBarHidden(isHidden: Bool) {
-        rootViewController.isNavigationBarHidden = isHidden
     }
 
     @objc func pop() {
