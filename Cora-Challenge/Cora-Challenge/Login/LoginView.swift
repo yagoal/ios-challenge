@@ -6,33 +6,33 @@
 //
 
 import SwiftUI
+import Combine
+
+import SwiftUI
+import Combine
 
 struct LoginView: View {
     @EnvironmentObject var coordinator: AppCoordinator
-    @StateObject private var viewModel: LoginViewModel
+    @ObservedObject var viewModel: LoginViewModel
     @FocusState private var isFocused: Bool
     
-    init(fieldType: FieldType) {
-        _viewModel = StateObject(wrappedValue: LoginViewModel(fieldType: fieldType))
-    }
-
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading, spacing: 12) {
                 if viewModel.fieldType == .cpf {
                     Text(LocalizedStringKey("WelcomeBack"))
                         .font(.avenirBodyRegular(size: 16))
-                        .foregroundColor(.primaryText)
+                        .foregroundColor(.neutral)
                         .padding(.top, 16)
                     
                     Text(LocalizedStringKey("EnterYourCPF"))
                         .font(.avenirBodyBold(size: 22))
-                        .foregroundColor(.primaryTextHigh)
+                        .foregroundColor(.neutralHigh)
                         .padding(.top, 8)
                 } else {
                     Text(LocalizedStringKey("EnterYourPassword"))
                         .font(.avenirBodyBold(size: 22))
-                        .foregroundColor(.primaryTextHigh)
+                        .foregroundColor(.neutralHigh)
                         .padding(.top, 16)
                 }
             }
@@ -40,7 +40,7 @@ struct LoginView: View {
             if viewModel.fieldType == .cpf {
                 MaskedTextField(
                     placeholder: "",
-                    text: $viewModel.text,
+                    text: $viewModel.cpf,
                     mask: CPFMask()
                 )
                 .padding(.top, 16)
@@ -49,7 +49,7 @@ struct LoginView: View {
             } else {
                 PasswordField(
                     placeholder: "",
-                    text: $viewModel.text
+                    text: $viewModel.password
                 )
                 .padding(.top, 16)
                 .focused($isFocused)
@@ -71,7 +71,20 @@ struct LoginView: View {
                 icon: .arrowRight,
                 size: .small
             ) {
-                nextAction()
+                viewModel.nextAction { result in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success:
+                            if viewModel.fieldType == .cpf {
+                                coordinator.showPasswordFormLogin(viewModel: viewModel)
+                            } else {
+                                coordinator.showStatementList()
+                            }
+                        case .failure(let error):
+                            print("Authentication failed: \(error.localizedDescription)")
+                        }
+                    }
+                }
             }
             .environment(\.isEnabled, viewModel.isValid)
             .padding(.bottom, 40)
@@ -81,28 +94,19 @@ struct LoginView: View {
     }
 
     private func onViewAppear() {
+        viewModel.password = ""
+        viewModel.setupFormValidation()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             isFocused = true
         }
     }
-
-    private func nextAction() {
-        switch viewModel.fieldType {
-        case .cpf:
-            coordinator.showPasswordFormLogin()
-        case .password:
-            // Implement password handling
-            break
-        }
-    }
 }
-
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LoginView(fieldType: .cpf)
-            LoginView(fieldType: .password)
+            LoginView(viewModel: LoginViewModel())
+            LoginView(viewModel: LoginViewModel())
         }
     }
 }
