@@ -22,6 +22,7 @@
 		20CC55852C2CD8790039F565 /* TransactionCellViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC55842C2CD8790039F565 /* TransactionCellViewData.swift */; };
 		20CC58012C2CFDCD0039F565 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC58002C2CFDCD0039F565 /* ErrorView.swift */; };
 		20CC58032C2CFE640039F565 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC58022C2CFE640039F565 /* EmptyStateView.swift */; };
+		20CC5A7F2C2DD6930039F565 /* FilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC5A7E2C2DD6930039F565 /* FilterType.swift */; };
 		20F705DB2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705DA2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift */; };
 		20F705DD2C2B6AFC00E5C96A /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705DC2C2B6AFC00E5C96A /* StartView.swift */; };
 		20F705DF2C2B6AFE00E5C96A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20F705DE2C2B6AFE00E5C96A /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		20CC55842C2CD8790039F565 /* TransactionCellViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewData.swift; sourceTree = "<group>"; };
 		20CC58002C2CFDCD0039F565 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		20CC58022C2CFE640039F565 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		20CC5A7E2C2DD6930039F565 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
 		20F705D72C2B6AFC00E5C96A /* Cora-Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cora-Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20F705DA2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cora_ChallengeApp.swift; sourceTree = "<group>"; };
 		20F705DC2C2B6AFC00E5C96A /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		20CC55692C2CB0970039F565 /* Statement */ = {
 			isa = PBXGroup;
 			children = (
+				20CC5A802C2DE5480039F565 /* Details */,
 				20CC55742C2CBC780039F565 /* Data */,
 				20CC556A2C2CB0D90039F565 /* List */,
 			);
@@ -198,8 +201,16 @@
 			isa = PBXGroup;
 			children = (
 				20CC55842C2CD8790039F565 /* TransactionCellViewData.swift */,
+				20CC5A7E2C2DD6930039F565 /* FilterType.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		20CC5A802C2DE5480039F565 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		20F705CE2C2B6AFC00E5C96A = {
@@ -526,6 +537,7 @@
 				20CC55722C2CBB340039F565 /* StatementListView.swift in Sources */,
 				20F70D862C2B99CA00E5C96A /* LoginView.swift in Sources */,
 				20F706072C2B781500E5C96A /* CoraButton.swift in Sources */,
+				20CC5A7F2C2DD6930039F565 /* FilterType.swift in Sources */,
 				20F70D822C2B8BC200E5C96A /* StartViewRepresentable.swift in Sources */,
 				20CC557E2C2CBF400039F565 /* StatementListViewModel.swift in Sources */,
 				20F705DB2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift in Sources */,

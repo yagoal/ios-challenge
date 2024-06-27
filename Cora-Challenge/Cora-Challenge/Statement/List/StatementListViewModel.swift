@@ -18,23 +18,17 @@ enum ViewState {
     case error(String)
 }
 
-enum FilterType: String, CaseIterable {
-    case all = "Tudo"
-    case income = "Entrada"
-    case expense = "Saída"
-    case future = "Futuro"
-}
-
 final class StatementViewModel: ObservableObject {
     @Published var state: ViewState = .initial
     @Published var selectedFilter: FilterType = .all
+    @Published var sortOrder: SortOrder = .recent
 
     private let transactionService: TransactionServiceProtocol
     private var cancellables = Set<AnyCancellable>()
+    private var originalTransactions = [String: [TransactionItem]]()
 
     init(transactionService: TransactionServiceProtocol = TransactionService()) {
         self.transactionService = transactionService
-        fetchTransactions()
     }
 
     func fetchTransactions() {
@@ -59,13 +53,14 @@ final class StatementViewModel: ObservableObject {
             groupedTransactions[result.date, default: []] += result.items
         }
 
-        filterTransactions(groupedTransactions)
+        originalTransactions = groupedTransactions
+        filterTransactions()
     }
 
-    func filterTransactions(_ transactions: [String: [TransactionItem]]) {
+    func filterTransactions() {
         var filteredTransactions = [String: [TransactionItem]]()
         
-        for (date, items) in transactions {
+        for (date, items) in originalTransactions {
             let filteredItems: [TransactionItem]
             switch selectedFilter {
             case .all:
@@ -78,13 +73,29 @@ final class StatementViewModel: ObservableObject {
                 filteredItems = []
             }
             if !filteredItems.isEmpty {
-                filteredTransactions[date] = filteredItems.sorted { $0.dateEvent > $1.dateEvent }
+                filteredTransactions[date] = filteredItems
             }
         }
 
-        state = .success(filteredTransactions)
+        reorderTransactions(filteredTransactions)
     }
 
+    func reorderTransactions(_ transactions: [String: [TransactionItem]]) {
+        let sortedDates: [String]
+        switch sortOrder {
+        case .recent:
+            sortedDates = transactions.keys.sorted(by: >)
+        case .oldest:
+            sortedDates = transactions.keys.sorted(by: <)
+        }
+        
+        var orderedTransactions = [String: [TransactionItem]]()
+        for date in sortedDates {
+            orderedTransactions[date] = transactions[date]
+        }
+        
+        state = .success(orderedTransactions)
+    }
 
     func formatSectionDate(_ date: String) -> String {
         let dateFormatter = DateFormatter()

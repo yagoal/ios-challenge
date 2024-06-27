@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TransactionCellViewData {
+    let id: String
     let color: Color
     let icon: Image
     let amount: String
@@ -16,12 +17,13 @@ struct TransactionCellViewData {
     let hour: String
 
     init(item: TransactionItem) {
-        self.color = Self.color(for: item.entry)
-        self.icon = Self.icon(for: item.entry)
-        self.amount = Self.formatAmount(item.amount)
-        self.label = item.label
-        self.name = item.name
-        self.hour = Self.formatHour(from: item.dateEvent)
+        id = item.id
+        color = Self.color(for: item.entry)
+        icon = Self.icon(for: item.entry)
+        amount = Self.formatAmount(item.amount)
+        label = item.label
+        name = item.name
+        hour = Self.formatHour(from: item.dateEvent)
     }
 
     private static func color(for entry: Entry) -> Color {

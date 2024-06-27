@@ -89,7 +89,7 @@ struct CoraButton: View {
                 iconView
             }
             .frame(maxWidth: .infinity)
-            .padding()
+            .padding(24)
             .frame(height: configuration.size.rawValue)
             .background(isDisabled ? Color.gray.opacity(0.5) : configuration.backgroundColor)
             .cornerRadius(configuration.size.rawValue / 4)
