@@ -12,6 +12,7 @@ final class CoraNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyCustomStyle()
+//        removeBackButtonTitle()
     }
 
     private func applyCustomStyle() {
@@ -28,9 +29,13 @@ final class CoraNavigationController: UINavigationController {
         appearance.backgroundColor = UIColor.systemGray6
         appearance.shadowColor = .clear
         appearance.titleTextAttributes = [
-            .foregroundColor: UIColor(Color.primaryTextHigh),
+            .foregroundColor: UIColor(Color.neutralHigh),
             .font: UIFont(name: "Avenir", size: 14) ?? UIFont.systemFont(ofSize: 14)
         ]
+        let barAppearance = UIBarButtonItemAppearance()
+        barAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+
+        appearance.backButtonAppearance = barAppearance
 
         return appearance
     }
@@ -77,4 +82,5 @@ final class CoraNavigationController: UINavigationController {
         
         return newImage
     }
+
 }

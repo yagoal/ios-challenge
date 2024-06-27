@@ -77,6 +77,9 @@ struct CoraButton: View {
     var body: some View {
         Button(action: action) {
             HStack(spacing: 8) {
+                if configuration.icon == nil && configuration.variant != .text {
+                    Spacer()
+                }
                 Text(text)
                     .font(.avenirBodyBold(size: configuration.size.fontSize))
                     .foregroundColor(configuration.textColor)
