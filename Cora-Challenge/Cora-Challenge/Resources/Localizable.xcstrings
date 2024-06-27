@@ -1,6 +1,19 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Algo deu errado" : {
+
+    },
+    "EmptyViewMessage" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhuma transação encontrada."
+          }
+        }
+      }
+    },
     "EnterYourCPF" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -22,6 +35,20 @@
           }
         }
       }
+    },
+    "ErrorViewMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Houve um problema, por favor, tentei novamente!"
+          }
+        }
+      }
+    },
+    "Extrato" : {
+
     },
     "ForgotPasswordButtonTitle" : {
       "extractionState" : "manual",
@@ -108,6 +135,9 @@
           }
         }
       }
+    },
+    "Tentar Novamente" : {
+
     },
     "WelcomeBack" : {
       "extractionState" : "manual",
