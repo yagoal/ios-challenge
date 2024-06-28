@@ -24,24 +24,17 @@ final class TransactionService: TransactionServiceProtocol {
         return apiClient.request(
             path: "/challenge/list",
             method: .get,
-            responseType: TransactionResponse.self,
-            body: nil,
-            isLoginRequest: false,
-            customHeaders: nil,
-            isPrint: true
+            responseType: TransactionResponse.self
         )
     }
 
-    func fetchTransactionDetails(id: String) -> AnyPublisher<TransactionDetailsResponse, Error> {
-        let path = "/challenge/details/\(id)"
+    func fetchTransactionDetails(
+        id: String
+    ) -> AnyPublisher<TransactionDetailsResponse, Error> {
         return apiClient.request(
-            path: path,
+            path: "/challenge/details/\(id)",
             method: .get,
-            responseType: TransactionDetailsResponse.self,
-            body: nil,
-            isLoginRequest: false,
-            customHeaders: nil,
-            isPrint: true
+            responseType: TransactionDetailsResponse.self
         )
     }
 }

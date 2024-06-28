@@ -21,6 +21,7 @@ struct StartView: View {
         .navigationBarBackButtonHidden(true)
     }
 
+    // MARK: - Top View
     private var topView: some View {
         ZStack(alignment: .topLeading) {
             Image("unsplash-login")
@@ -39,6 +40,7 @@ struct StartView: View {
         }
     }
     
+    // MARK: - Bottom View
     private var bottomView: some View {
         VStack {
             VStack(alignment: .leading, spacing: 16) {
@@ -67,6 +69,7 @@ struct StartView: View {
         .padding(.top, 16)
     }
 
+    // MARK: - Buttons View
     private var buttonsView: some View {
         VStack(spacing: 24) {
             CoraButton(
@@ -90,7 +93,10 @@ struct StartView: View {
     }
 }
 
-struct BottomCurveShape: Shape {
+// MARK: - BottomCurveShape
+
+/// A custom `Shape` that creates a bottom curve effect for the image mask.
+private struct BottomCurveShape: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
 

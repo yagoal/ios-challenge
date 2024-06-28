@@ -14,6 +14,21 @@ enum CoraButtonVariant {
 
 enum CoraButtonIcon: String {
     case arrowRight = "arrow.right"
+    case share = "square.and.arrow.up"
+    
+    var color: Color {
+        switch self {
+        case .arrowRight: return .white
+        case .share: return .init(hex: "#3B3B3B")
+        }
+    }
+
+    var size: CGFloat {
+        switch self {
+        case .arrowRight: return 16
+        case .share: return 24
+        }
+    }
 }
 
 enum ButtonSize: CGFloat {
@@ -46,15 +61,6 @@ struct CoraButtonConfiguration {
     }
     
     var textColor: Color {
-        switch variant {
-        case .primary:
-            return color == .primary ? .surface : .primary
-        case .text:
-            return .surface
-        }
-    }
-    
-    var iconColor: Color {
         switch variant {
         case .primary:
             return color == .primary ? .surface : .primary

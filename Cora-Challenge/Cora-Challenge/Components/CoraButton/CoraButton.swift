@@ -14,7 +14,9 @@ enum CoraButtonState {
 }
 
 struct CoraButton: View {
-    @SwiftUI.Environment(\.isEnabled) private var isEnabled: Bool
+    // MARK: - Properties
+    @Environment(\.isEnabled) private var isEnabled: Bool
+    @Binding var state: CoraButtonState
 
     private var _isDisabled: Bool?
     private var isDisabled: Bool {
@@ -27,13 +29,15 @@ struct CoraButton: View {
     private var configuration: CoraButtonConfiguration
 
     private var currentState: CoraButtonState {
-        isDisabled ? .disabled : .default
+        isDisabled ? .disabled : state
     }
 
+    // MARK: - Initializer
     /// Creates a customizable CoraButton.
     ///
     /// - Parameters:
     ///   - text: The text displayed on the button.
+    ///   - state: The state of the button, indicating if it's in default, disabled, or loading state.
     ///   - color: The background color of the button. Default is `.primary`.
     ///   - icon: An optional `CoraButtonIcon` enum value representing the button icon. Default is nil.
     ///   - size: The size of the button, default is `.medium`.
@@ -46,12 +50,13 @@ struct CoraButton: View {
     ///  // button pressed
     /// }
     ///
-    /// CoraButton("Press me", color: .blue, icon: .arrowRight, size: .large, variant: .primary) {
+    /// CoraButton("Press me", state: .constant(.loading), color: .blue, icon: .arrowRight, size: .large, variant: .primary) {
     ///   // Code to be executed on button press
     /// }
     /// ```
     init(
         _ text: LocalizedStringKey,
+        state: Binding<CoraButtonState> = .constant(.default),
         color: Color = .primary,
         icon: CoraButtonIcon? = nil,
         size: ButtonSize = .medium,
@@ -60,33 +65,46 @@ struct CoraButton: View {
     ) {
         self.text = text
         self.action = action
+        self._state = state
         configuration = .init(icon: icon, size: size, variant: variant, color: color)
     }
 
+    // MARK: - Views
     @ViewBuilder
     private var iconView: some View {
-        if let icon = configuration.icon {
+        if let icon = configuration.icon, currentState != .loading {
             Image(systemName: icon.rawValue)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 16, height: 16)
-                .foregroundColor(configuration.iconColor)
+                .frame(width: icon.size, height: icon.size)
+                .foregroundColor(icon.color)
         }
     }
 
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            if currentState != .loading {
+                action()
+            }
+        }) {
             HStack(spacing: 8) {
-                if configuration.icon == nil && configuration.variant != .text {
-                    Spacer()
+                if currentState == .loading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .foregroundColor(.white)
+                } else {
+                    if configuration.icon == nil && configuration.variant != .text {
+                        Spacer()
+                    } else {
+                        Text(text)
+                            .font(.avenirBodyBold(size: configuration.size.fontSize))
+                            .foregroundColor(configuration.textColor)
+                    }
+                    if configuration.variant != .text {
+                        Spacer()
+                    }
+                    iconView
                 }
-                Text(text)
-                    .font(.avenirBodyBold(size: configuration.size.fontSize))
-                    .foregroundColor(configuration.textColor)
-                if configuration.variant != .text {
-                    Spacer()
-                }
-                iconView
             }
             .frame(maxWidth: .infinity)
             .padding(24)
@@ -97,6 +115,7 @@ struct CoraButton: View {
         .disabled(currentState == .disabled || currentState == .loading)
     }
 
+    // MARK: - Methods
     func disabled(_ isDisabled: Bool) -> Self {
         var copy = self
         copy._isDisabled = isDisabled
@@ -104,20 +123,19 @@ struct CoraButton: View {
     }
 }
 
-struct CoraButton_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            CoraButton(LocalizedStringKey("Quero fazer parte!"), color: .primary, icon: .arrowRight, size: .medium, variant: .primary) {
-                print("Button pressed")
-            }
-            .padding()
-            .environment(\.isEnabled, true)
-            
-            CoraButton("Já sou cliente", color: .clear, size: .small, variant: .text) {
-                print("Button pressed")
-            }
-            .padding()
-            .environment(\.isEnabled, false)
+// MARK: - Preview
+#Preview {
+    VStack {
+        CoraButton(LocalizedStringKey("Quero fazer parte!"), state: .constant(.default), color: .primary, icon: .arrowRight, size: .medium, variant: .primary) {
+            print("Button pressed")
         }
+        .padding()
+        .environment(\.isEnabled, true)
+        
+        CoraButton("Já sou cliente", state: .constant(.loading), color: .clear, size: .small, variant: .text) {
+            print("Button pressed")
+        }
+        .padding()
+        .environment(\.isEnabled, false)
     }
 }

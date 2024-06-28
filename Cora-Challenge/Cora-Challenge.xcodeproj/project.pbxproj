@@ -23,6 +23,11 @@
 		20CC58012C2CFDCD0039F565 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC58002C2CFDCD0039F565 /* ErrorView.swift */; };
 		20CC58032C2CFE640039F565 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC58022C2CFE640039F565 /* EmptyStateView.swift */; };
 		20CC5A7F2C2DD6930039F565 /* FilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC5A7E2C2DD6930039F565 /* FilterType.swift */; };
+		20CC5A822C2DE5D80039F565 /* TransactionDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC5A812C2DE5D80039F565 /* TransactionDetailsResponse.swift */; };
+		20CC5A842C2DE68C0039F565 /* TransactionDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC5A832C2DE68C0039F565 /* TransactionDetailsViewModel.swift */; };
+		20CC5A862C2DE8020039F565 /* TransactionDetailsPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC5A852C2DE8020039F565 /* TransactionDetailsPlaceholderView.swift */; };
+		20CC5A892C2DEA7F0039F565 /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC5A882C2DEA7F0039F565 /* TransactionDetailsView.swift */; };
+		20CC5A8B2C2DEB210039F565 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC5A8A2C2DEB210039F565 /* Int+Extension.swift */; };
 		20F705DB2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705DA2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift */; };
 		20F705DD2C2B6AFC00E5C96A /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705DC2C2B6AFC00E5C96A /* StartView.swift */; };
 		20F705DF2C2B6AFE00E5C96A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20F705DE2C2B6AFE00E5C96A /* Assets.xcassets */; };
@@ -80,6 +85,11 @@
 		20CC58002C2CFDCD0039F565 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		20CC58022C2CFE640039F565 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		20CC5A7E2C2DD6930039F565 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
+		20CC5A812C2DE5D80039F565 /* TransactionDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsResponse.swift; sourceTree = "<group>"; };
+		20CC5A832C2DE68C0039F565 /* TransactionDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsViewModel.swift; sourceTree = "<group>"; };
+		20CC5A852C2DE8020039F565 /* TransactionDetailsPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsPlaceholderView.swift; sourceTree = "<group>"; };
+		20CC5A882C2DEA7F0039F565 /* TransactionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsView.swift; sourceTree = "<group>"; };
+		20CC5A8A2C2DEB210039F565 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		20F705D72C2B6AFC00E5C96A /* Cora-Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cora-Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20F705DA2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cora_ChallengeApp.swift; sourceTree = "<group>"; };
 		20F705DC2C2B6AFC00E5C96A /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -163,6 +173,7 @@
 		20CC556A2C2CB0D90039F565 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				20CC55832C2CD8520039F565 /* Models */,
 				20CC556F2C2CBAC20039F565 /* Views */,
 				20CC557D2C2CBF400039F565 /* StatementListViewModel.swift */,
 			);
@@ -175,7 +186,6 @@
 				20CC557F2C2CCF010039F565 /* TransactionCell.swift */,
 				20CC55712C2CBB340039F565 /* StatementListView.swift */,
 				20CC556B2C2CB0F90039F565 /* StatementListPlaceHolder.swift */,
-				20CC55832C2CD8520039F565 /* Models */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				20CC55792C2CBD0B0039F565 /* TransactionResult.swift */,
+				20CC5A812C2DE5D80039F565 /* TransactionDetailsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,8 +220,19 @@
 		20CC5A802C2DE5480039F565 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				20CC5A872C2DE8060039F565 /* Views */,
+				20CC5A832C2DE68C0039F565 /* TransactionDetailsViewModel.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		20CC5A872C2DE8060039F565 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20CC5A852C2DE8020039F565 /* TransactionDetailsPlaceholderView.swift */,
+				20CC5A882C2DEA7F0039F565 /* TransactionDetailsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		20F705CE2C2B6AFC00E5C96A = {
@@ -239,7 +261,6 @@
 				20CC55692C2CB0970039F565 /* Statement */,
 				20F708842C2B7AFA00E5C96A /* Extensions */,
 				20F706052C2B77CB00E5C96A /* Components */,
-				20F7150B2C2C952D00E5C96A /* Data */,
 				20F705E12C2B6AFE00E5C96A /* Preview Content */,
 				20F705E02C2B6AFE00E5C96A /* Cora_Challenge.entitlements */,
 				20F7100D2C2C479F00E5C96A /* Resources */,
@@ -294,6 +315,7 @@
 				20F706082C2B79EA00E5C96A /* Colors+Extension.swift */,
 				20F708852C2B7B2A00E5C96A /* Font+Extension.swift */,
 				20F710032C2BA8E500E5C96A /* String+Extensions.swift */,
+				20CC5A8A2C2DEB210039F565 /* Int+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,6 +332,7 @@
 		20F70D7E2C2B89F700E5C96A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				20F7150B2C2C952D00E5C96A /* Data */,
 				20F70D7F2C2B8B4900E5C96A /* AppCoordinator.swift */,
 				20F70D812C2B8BC200E5C96A /* StartViewRepresentable.swift */,
 				20F705DA2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift */,
@@ -527,16 +550,20 @@
 				20CC58012C2CFDCD0039F565 /* ErrorView.swift in Sources */,
 				20CC55802C2CCF010039F565 /* TransactionCell.swift in Sources */,
 				20F710042C2BA8E500E5C96A /* String+Extensions.swift in Sources */,
+				20CC5A842C2DE68C0039F565 /* TransactionDetailsViewModel.swift in Sources */,
 				20CC55702C2CBAE10039F565 /* StatementListPlaceHolder.swift in Sources */,
 				20CC557A2C2CBD0B0039F565 /* TransactionResult.swift in Sources */,
 				20CC557C2C2CBE140039F565 /* HTTPMethod.swift in Sources */,
+				20CC5A862C2DE8020039F565 /* TransactionDetailsPlaceholderView.swift in Sources */,
 				20F708862C2B7B2A00E5C96A /* Font+Extension.swift in Sources */,
+				20CC5A822C2DE5D80039F565 /* TransactionDetailsResponse.swift in Sources */,
 				20CC58032C2CFE640039F565 /* EmptyStateView.swift in Sources */,
 				20F7100A2C2BAF5F00E5C96A /* MaskProtocol.swift in Sources */,
 				20F706092C2B79EA00E5C96A /* Colors+Extension.swift in Sources */,
 				20CC55722C2CBB340039F565 /* StatementListView.swift in Sources */,
 				20F70D862C2B99CA00E5C96A /* LoginView.swift in Sources */,
 				20F706072C2B781500E5C96A /* CoraButton.swift in Sources */,
+				20CC5A8B2C2DEB210039F565 /* Int+Extension.swift in Sources */,
 				20CC5A7F2C2DD6930039F565 /* FilterType.swift in Sources */,
 				20F70D822C2B8BC200E5C96A /* StartViewRepresentable.swift in Sources */,
 				20CC557E2C2CBF400039F565 /* StatementListViewModel.swift in Sources */,
@@ -544,6 +571,7 @@
 				20F70D7D2C2B841C00E5C96A /* CoraButtonConfiguration.swift in Sources */,
 				20F70D882C2B99DD00E5C96A /* LoginViewModel.swift in Sources */,
 				20F7100C2C2BAFA900E5C96A /* PasswordField.swift in Sources */,
+				20CC5A892C2DEA7F0039F565 /* TransactionDetailsView.swift in Sources */,
 				20CC55852C2CD8790039F565 /* TransactionCellViewData.swift in Sources */,
 				20F710062C2BAE3700E5C96A /* MaskedTextField.swift in Sources */,
 				20CC52E32C2C97370039F565 /* AuthResponse.swift in Sources */,
