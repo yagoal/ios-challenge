@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StatementListView: View {
-    @StateObject var viewModel = StatementViewModel()
+    @StateObject var viewModel = StatementListViewModel()
     @EnvironmentObject var coordinator: AppCoordinator
 
     var body: some View {
@@ -120,6 +120,12 @@ struct StatementListView: View {
 
             ForEach(transactions ?? []) { transaction in
                 TransactionCell(viewData: .init(item: transaction))
+                    .onTapGesture {
+                        coordinator.showStatementDetails(
+                            id: transaction.id,
+                            transactionType: transaction.entry
+                        )
+                    }
             }
         }
     }
@@ -127,5 +133,4 @@ struct StatementListView: View {
 
 #Preview {
     StatementListView()
-        .environmentObject(AppCoordinator(rootViewController: UINavigationController()))
 }

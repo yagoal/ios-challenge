@@ -20,7 +20,7 @@ struct TransactionCellViewData {
         id = item.id
         color = Self.color(for: item.entry)
         icon = Self.icon(for: item.entry)
-        amount = Self.formatAmount(item.amount)
+        amount = item.amount.formattedCurrencyAmount
         label = item.label
         name = item.name
         hour = Self.formatHour(from: item.dateEvent)
@@ -45,17 +45,6 @@ struct TransactionCellViewData {
             return Image(Icons.credit.rawValue)
         case .unknown:
             return Image(systemName: "questionmark.circle")
-        }
-    }
-
-    private static func formatAmount(_ amount: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = Locale(identifier: "pt_BR")
-        if let formattedAmount = formatter.string(from: NSNumber(value: Double(amount) / 100)) {
-            return formattedAmount
-        } else {
-            return "R$ 0,00"
         }
     }
 

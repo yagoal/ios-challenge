@@ -1,28 +1,36 @@
 //
-//  StatementListPlaceHolder.swift
+//  Views.swift
 //  Cora-Challenge
 //
-//  Created by Yago Augusto Guedes Pereira on 26/06/24.
+//  Created by Yago Augusto Guedes Pereira on 27/06/24.
 //
 
 import SwiftUI
 
-struct PlaceholderView: View {
+struct TransactionDetailsPlaceholderView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                ForEach(0..<20) { index in
-                    if index % 4 == 0 {
-                        PlaceholderSection()
-                    }
-                    PlaceholderCell()
+                PlaceholderHeader()
+                ForEach(0..<6) { _ in
+                    PlaceholderDetailCell()
                 }
             }
+            .padding()
         }
     }
 }
 
-private struct PlaceholderCell: View {
+private struct PlaceholderHeader: View {
+    var body: some View {
+        ShimmerView(color: .gray.opacity(0.2))
+            .frame(height: 30)
+            .cornerRadius(5)
+            .frame(maxWidth: UIScreen.main.bounds.width * 0.8, alignment: .leading)
+    }
+}
+
+private struct PlaceholderDetailCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             ShimmerView()
@@ -34,19 +42,9 @@ private struct PlaceholderCell: View {
                 .cornerRadius(5)
                 .frame(maxWidth: UIScreen.main.bounds.width * 0.4, alignment: .leading)
         }
-        .padding(.horizontal, 24)
-    }
-}
-
-private struct PlaceholderSection: View {
-    var body: some View {
-        ShimmerView(color: .gray.opacity(0.2))
-            .frame(height: 30)
-            .cornerRadius(5)
-            .frame(maxWidth: .infinity)
     }
 }
 
 #Preview {
-    PlaceholderView()
+    TransactionDetailsPlaceholderView()
 }

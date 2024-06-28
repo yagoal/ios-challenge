@@ -18,7 +18,7 @@ enum ViewState {
     case error(String)
 }
 
-final class StatementViewModel: ObservableObject {
+final class StatementListViewModel: ObservableObject {
     @Published var state: ViewState = .initial
     @Published var selectedFilter: FilterType = .all
     @Published var sortOrder: SortOrder = .recent
