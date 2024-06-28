@@ -21,7 +21,6 @@ class AuthService: AuthServiceProtocol {
 
     func authenticate(cpf: String, password: String) -> AnyPublisher<AuthResponse, Error> {
         let path = "/challenge/auth"
-        let headers = ["Content-Type": "application/json"]
         let body = ["cpf": cpf, "password": password]
 
         return apiClient.request(
@@ -29,9 +28,7 @@ class AuthService: AuthServiceProtocol {
             method: .post,
             responseType: AuthResponse.self,
             body: body,
-            isLoginRequest: true,
-            customHeaders: headers,
-            isPrint: true
+            isLoginRequest: true
         )
     }
 }

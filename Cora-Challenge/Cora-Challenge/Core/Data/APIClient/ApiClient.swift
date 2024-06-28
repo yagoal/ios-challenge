@@ -19,25 +19,51 @@ protocol ApiClientProtocol {
         method: HTTPMethod,
         responseType: T.Type,
         body: Encodable?,
-        isLoginRequest: Bool,
         customHeaders: [String: String]?,
+        isLoginRequest: Bool,
         isPrint: Bool
+    ) -> AnyPublisher<T, Error>
+    
+    func request<T: Decodable>(
+        path: String,
+        method: HTTPMethod,
+        responseType: T.Type
+    ) -> AnyPublisher<T, Error>
+    
+    func request<T: Decodable>(
+        path: String,
+        method: HTTPMethod,
+        responseType: T.Type,
+        body: Encodable?,
+        isLoginRequest: Bool
     ) -> AnyPublisher<T, Error>
 }
 
 final class ApiClient: ApiClientProtocol {
+    // MARK: - Properties
     private let baseURLString = "https://api.challenge.stage.cora.com.br"
     private let apiKey = "d91dae118afc867467da958a6c159114"
     private var cancellables = Set<AnyCancellable>()
     private let keychainHelper = KeychainHelper.shared
 
+    // MARK: - Public Methods
+    /// Makes a network request and returns a publisher with the response.
+    /// - Parameters:
+    ///   - path: The endpoint path.
+    ///   - method: The HTTP method to use.
+    ///   - responseType: The expected response type.
+    ///   - body: The request body.
+    ///   - customHeaders: Any custom headers to add to the request.
+    ///   - isLoginRequest: Whether this is a login request.
+    ///   - isPrint: Whether to print the request and response JSON.
+    /// - Returns: A publisher emitting the decoded response or an error.
     func request<T: Decodable>(
         path: String,
         method: HTTPMethod,
         responseType: T.Type,
         body: Encodable? = nil,
-        isLoginRequest: Bool = false,
         customHeaders: [String: String]? = nil,
+        isLoginRequest: Bool = false,
         isPrint: Bool = true
     ) -> AnyPublisher<T, Error> {
         guard let baseURL = URL(string: baseURLString) else {
@@ -53,6 +79,8 @@ final class ApiClient: ApiClientProtocol {
         if !isLoginRequest, let token = keychainHelper.getToken() {
             request.addValue(token, forHTTPHeaderField: "token")
         }
+
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         customHeaders?.forEach { key, value in
             request.addValue(value, forHTTPHeaderField: key)
@@ -98,7 +126,61 @@ final class ApiClient: ApiClientProtocol {
             .eraseToAnyPublisher()
     }
 
-    private func renewTokenAndRetry<T: Decodable>(request: URLRequest) -> AnyPublisher<T, Error> {
+    /// Makes a network request with only the required parameters and returns a publisher with the response.
+    /// - Parameters:
+    ///   - path: The endpoint path.
+    ///   - method: The HTTP method to use.
+    ///   - responseType: The expected response type.
+    /// - Returns: A publisher emitting the decoded response or an error.
+    func request<T: Decodable>(
+        path: String,
+        method: HTTPMethod,
+        responseType: T.Type
+    ) -> AnyPublisher<T, Error> {
+        return request(
+            path: path,
+            method: method,
+            responseType: responseType,
+            body: nil,
+            customHeaders: nil,
+            isLoginRequest: false,
+            isPrint: true
+        )
+    }
+
+    /// Makes a network request with required parameters and optional body and login request flag, and returns a publisher with the response.
+    /// - Parameters:
+    ///   - path: The endpoint path.
+    ///   - method: The HTTP method to use.
+    ///   - responseType: The expected response type.
+    ///   - body: The request body.
+    ///   - isLoginRequest: Whether this is a login request.
+    /// - Returns: A publisher emitting the decoded response or an error.
+    func request<T: Decodable>(
+        path: String,
+        method: HTTPMethod,
+        responseType: T.Type,
+        body: Encodable?,
+        isLoginRequest: Bool
+    ) -> AnyPublisher<T, Error> {
+        return request(
+            path: path,
+            method: method,
+            responseType: responseType,
+            body: body,
+            customHeaders: nil,
+            isLoginRequest: isLoginRequest,
+            isPrint: true
+        )
+    }
+
+    // MARK: - Token Renewal
+    /// Renews the token and retries the request in case of token expiration.
+    /// - Parameter request: The original request that needs to be retried.
+    /// - Returns: A publisher emitting the decoded response or an error.
+    private func renewTokenAndRetry<T: Decodable>(
+        request: URLRequest
+    ) -> AnyPublisher<T, Error> {
         guard let token = keychainHelper.getToken() else {
             return Fail(error: NetworkError.userAuthenticationRequired).eraseToAnyPublisher()
         }
@@ -129,9 +211,11 @@ final class ApiClient: ApiClientProtocol {
             .eraseToAnyPublisher()
     }
 
+    /// Sends a request to renew the authentication token.
+    /// - Parameter token: The expired token.
+    /// - Returns: A publisher emitting the new authentication response or an error.
     private func renewToken(token: String) -> AnyPublisher<AuthResponse, Error> {
         let path = "/challenge/auth"
-        let headers = ["Content-Type": "application/json"]
         let body = ["token": token]
 
         return request(
@@ -139,12 +223,16 @@ final class ApiClient: ApiClientProtocol {
             method: .post,
             responseType: AuthResponse.self,
             body: body,
+            customHeaders: nil,
             isLoginRequest: true,
-            customHeaders: headers,
             isPrint: true
         )
     }
 
+    // MARK: - JSON Utilities
+    /// Converts Data to a pretty-printed JSON string for debugging.
+    /// - Parameter data: The JSON data.
+    /// - Returns: A pretty-printed JSON string or nil if conversion fails.
     private func prettyPrintedJSON(_ data: Data) -> String? {
         guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
               let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted]),
