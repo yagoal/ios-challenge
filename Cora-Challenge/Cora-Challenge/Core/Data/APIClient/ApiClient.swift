@@ -41,10 +41,12 @@ protocol ApiClientProtocol {
 
 final class ApiClient: ApiClientProtocol {
     // MARK: - Properties
+    static let shared = ApiClient()
     private let baseURLString = "https://api.challenge.stage.cora.com.br"
     private let apiKey = "d91dae118afc867467da958a6c159114"
     private var cancellables = Set<AnyCancellable>()
     private let keychainHelper = KeychainHelper.shared
+    var didRefreshToken: Double?
 
     // MARK: - Public Methods
     /// Makes a network request and returns a publisher with the response.
@@ -69,59 +71,40 @@ final class ApiClient: ApiClientProtocol {
         guard let baseURL = URL(string: baseURLString) else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
-
+        
         let endpoint = baseURL.appendingPathComponent(path)
         var request = URLRequest(url: endpoint)
         request.httpMethod = method.rawValue
-
+        
         request.addValue(apiKey, forHTTPHeaderField: "apikey")
-
+        
+        if isLoginRequest {
+            didRefreshToken = Date().timeIntervalSince1970
+        }
+        
         if !isLoginRequest, let token = keychainHelper.getToken() {
             request.addValue(token, forHTTPHeaderField: "token")
         }
 
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         customHeaders?.forEach { key, value in
             request.addValue(value, forHTTPHeaderField: key)
         }
-
+        
         if let body = body, let bodyData = try? JSONEncoder().encode(body) {
             request.httpBody = bodyData
             if isPrint {
                 print("Request Body JSON: \(prettyPrintedJSON(bodyData) ?? "Invalid JSON")")
             }
         }
-
-        return URLSession.shared.dataTaskPublisher(for: request)
-            .tryMap { output in
-                guard let response = output.response as? HTTPURLResponse else {
-                    throw URLError(.badServerResponse)
-                }
-                if response.statusCode == 401 {
-                    throw NetworkError.userAuthenticationRequired
-                }
-                return output.data
-            }
-            .catch { [weak self] error -> AnyPublisher<Data, Error> in
-                guard let self = self, case NetworkError.userAuthenticationRequired = error else {
+        
+        return performRequest(request, responseType: responseType, isPrint: isPrint)
+            .catch { [weak self] error -> AnyPublisher<T, Error> in
+                guard let self, case NetworkError.userAuthenticationRequired = error else {
                     return Fail(error: error).eraseToAnyPublisher()
                 }
-                return self.renewTokenAndRetry(request: request)
-            }
-            .tryMap { data in
-                if let jsonString = self.prettyPrintedJSON(data), isPrint {
-                    print("Response JSON: \(jsonString)")
-                }
-                return try JSONDecoder().decode(T.self, from: data)
-            }
-            .catch { error -> AnyPublisher<T, Error> in
-                if let urlError = error as? URLError, urlError.code == .timedOut {
-                    print("Erro: Timeout")
-                    return Fail(error: NetworkError.timeoutError).eraseToAnyPublisher()
-                } else {
-                    return Fail(error: error).eraseToAnyPublisher()
-                }
+                return renewTokenAndRetry(request: request, responseType: responseType)
             }
             .eraseToAnyPublisher()
     }
@@ -174,12 +157,56 @@ final class ApiClient: ApiClientProtocol {
         )
     }
 
+    // MARK: - Request Handling
+    private func performRequest<T: Decodable>(
+        _ request: URLRequest,
+        responseType: T.Type,
+        isPrint: Bool
+    ) -> AnyPublisher<T, Error> {
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { [weak self] output in
+                guard let self = self, let response = output.response as? HTTPURLResponse else {
+                    throw URLError(.badServerResponse)
+                }
+
+                let timestampNow: Double = Date().timeIntervalSince1970
+                var mustRenewToken = false
+                
+                if let didRefreshToken {
+                    mustRenewToken = (timestampNow - didRefreshToken) > 60
+                }
+
+                if response.statusCode == 401 || mustRenewToken {
+                    throw NetworkError.userAuthenticationRequired
+                }
+                return output.data
+            }
+            .tryMap { data in
+                if let jsonString = self.prettyPrintedJSON(data), isPrint {
+                    print("Response JSON: \(jsonString)")
+                }
+                return data
+            }
+            .flatMap { data -> AnyPublisher<T, Error> in
+                do {
+                    let decodedResponse = try JSONDecoder().decode(T.self, from: data)
+                    return Just(decodedResponse)
+                        .setFailureType(to: Error.self)
+                        .eraseToAnyPublisher()
+                } catch {
+                    return Fail(error: error).eraseToAnyPublisher()
+                }
+            }
+            .eraseToAnyPublisher()
+    }
+
     // MARK: - Token Renewal
     /// Renews the token and retries the request in case of token expiration.
     /// - Parameter request: The original request that needs to be retried.
     /// - Returns: A publisher emitting the decoded response or an error.
     private func renewTokenAndRetry<T: Decodable>(
-        request: URLRequest
+        request: URLRequest,
+        responseType: T.Type
     ) -> AnyPublisher<T, Error> {
         guard let token = keychainHelper.getToken() else {
             return Fail(error: NetworkError.userAuthenticationRequired).eraseToAnyPublisher()
@@ -190,23 +217,8 @@ final class ApiClient: ApiClientProtocol {
                 self?.keychainHelper.saveToken(authResponse.token)
                 var newRequest = request
                 newRequest.setValue(authResponse.token, forHTTPHeaderField: "token")
-                return URLSession.shared.dataTaskPublisher(for: newRequest)
-                    .tryMap { output in
-                        guard let response = output.response as? HTTPURLResponse else {
-                            throw URLError(.badServerResponse)
-                        }
-                        if response.statusCode == 401 {
-                            throw NetworkError.userAuthenticationRequired
-                        }
-                        return output.data
-                    }
-                    .tryMap { data in
-                        if let jsonString = self?.prettyPrintedJSON(data) {
-                            print("Response JSON after token renewal: \(jsonString)")
-                        }
-                        return try JSONDecoder().decode(T.self, from: data)
-                    }
-                    .eraseToAnyPublisher()
+                return self?.performRequest(newRequest, responseType: T.self, isPrint: true)
+                    .eraseToAnyPublisher() ?? Fail(error: NetworkError.userAuthenticationRequired).eraseToAnyPublisher()
             }
             .eraseToAnyPublisher()
     }
