@@ -8,20 +8,26 @@
 import Foundation
 import Combine
 
+// MARK: - Protocols
 protocol TransactionServiceProtocol {
     func fetchTransactions() -> AnyPublisher<TransactionResponse, Error>
     func fetchTransactionDetails(id: String) -> AnyPublisher<TransactionDetailsResponse, Error>
 }
 
+// MARK: - TransactionService
 final class TransactionService: TransactionServiceProtocol {
+    
+    // MARK: - Properties
     private let apiClient: ApiClientProtocol
 
-    init(apiClient: ApiClientProtocol = ApiClient()) {
+    // MARK: - Initializer
+    init(apiClient: ApiClientProtocol = ApiClient.shared) {
         self.apiClient = apiClient
     }
 
+    // MARK: - Request Methods
     func fetchTransactions() -> AnyPublisher<TransactionResponse, Error> {
-        return apiClient.request(
+        apiClient.request(
             path: "/challenge/list",
             method: .get,
             responseType: TransactionResponse.self
@@ -31,7 +37,7 @@ final class TransactionService: TransactionServiceProtocol {
     func fetchTransactionDetails(
         id: String
     ) -> AnyPublisher<TransactionDetailsResponse, Error> {
-        return apiClient.request(
+        apiClient.request(
             path: "/challenge/details/\(id)",
             method: .get,
             responseType: TransactionDetailsResponse.self

@@ -8,10 +8,7 @@
 import Foundation
 import Combine
 
-import Foundation
-import Combine
-
-enum ViewState {
+enum ViewState: Equatable {
     case initial
     case loading
     case success([String: [TransactionItem]])
@@ -25,7 +22,7 @@ final class StatementListViewModel: ObservableObject {
 
     private let transactionService: TransactionServiceProtocol
     private var cancellables = Set<AnyCancellable>()
-    private var originalTransactions = [String: [TransactionItem]]()
+    private(set) var originalTransactions = [String: [TransactionItem]]()
 
     init(transactionService: TransactionServiceProtocol = TransactionService()) {
         self.transactionService = transactionService
@@ -46,7 +43,7 @@ final class StatementListViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    private func groupTransactionsByDate(_ results: [TransactionResult]) {
+    func groupTransactionsByDate(_ results: [TransactionResult]) {
         var groupedTransactions = [String: [TransactionItem]]()
 
         for result in results {

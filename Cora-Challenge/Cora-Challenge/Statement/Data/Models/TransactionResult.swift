@@ -17,7 +17,7 @@ struct TransactionResult: Decodable {
     let date: String
 }
 
-struct TransactionItem: Decodable, Identifiable {
+struct TransactionItem: Equatable, Decodable, Identifiable {
     let id: String
     let description: String
     let label: String

@@ -5,8 +5,9 @@
 //  Created by Yago Augusto Guedes Pereira on 25/06/24.
 //
 
-import SwiftUI
+import Foundation
 
+/// A protocol defining a mask format for formatting text.
 public protocol Mask {
     var maskFormat: String { get set }
     func formateValue(_ value: String) -> String
@@ -30,6 +31,7 @@ extension Mask {
     }
 }
 
+/// A concrete implementation of the `Mask` protocol for formatting CPF numbers.
 struct CPFMask: Mask {
     public var maskFormat: String = "###.###.###-##"
 }

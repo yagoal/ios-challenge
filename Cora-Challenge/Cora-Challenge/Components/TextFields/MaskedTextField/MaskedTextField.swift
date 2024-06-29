@@ -8,7 +8,11 @@
 import SwiftUI
 import Combine
 
-
+/// A custom view that provides a text field with a mask format for input validation and formatting.
+/// - Parameters:
+///   - placeholder: The placeholder text to display when the text field is empty.
+///   - text: A binding to the text entered by the user.
+///   - mask: An optional mask to format the text entered by the user.
 struct MaskedTextField: View {
     @Binding private var text: String
     private let placeholder: String
@@ -34,4 +38,3 @@ struct MaskedTextField: View {
         }
     }
 }
-

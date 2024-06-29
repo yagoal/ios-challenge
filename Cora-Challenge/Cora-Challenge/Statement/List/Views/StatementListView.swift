@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct StatementListView: View {
+    // MARK: - Properties
     @StateObject var viewModel = StatementListViewModel()
     @EnvironmentObject var coordinator: AppCoordinator
 
+    // MARK: - Body
     var body: some View {
         VStack {
             headerView
@@ -38,6 +40,7 @@ struct StatementListView: View {
         .navigationBarTitle("Extrato", displayMode: .inline)
     }
 
+    // MARK: - Header View
     private var headerView: some View {
         VStack {
             HStack(alignment: .top) {
@@ -88,6 +91,7 @@ struct StatementListView: View {
         }
     }
 
+    // MARK: - List View
     private func listView(transactions: [String: [TransactionItem]]) -> some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 16) {
@@ -98,6 +102,7 @@ struct StatementListView: View {
         }
     }
 
+    // MARK: - Helper Methods
     private func sortedTransactionKeys(transactions: [String: [TransactionItem]]) -> [String] {
         transactions.keys.sorted(by: {
             viewModel.sortOrder == .recent ? $0 > $1 : $0 < $1

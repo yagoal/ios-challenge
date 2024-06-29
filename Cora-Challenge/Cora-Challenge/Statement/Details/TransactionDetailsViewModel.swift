@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-enum DetailViewState {
+enum DetailViewState: Equatable {
     case initial
     case loading
     case success(TransactionDetailsResponse)
@@ -16,15 +16,18 @@ enum DetailViewState {
 }
 
 final class TransactionDetailsViewModel: ObservableObject {
+    // MARK: - Properties
     @Published var state: DetailViewState = .initial
 
     private let transactionService: TransactionServiceProtocol
     private var cancellables = Set<AnyCancellable>()
 
+    // MARK: - Initializer
     init(transactionService: TransactionServiceProtocol = TransactionService()) {
         self.transactionService = transactionService
     }
 
+    // MARK: - Fetch Details Methods
     func fetchTransactionDetails(id: String) {
         state = .loading
         transactionService.fetchTransactionDetails(id: id)
@@ -42,6 +45,7 @@ final class TransactionDetailsViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
+    // MARK: - Date Formatting Methods
     func formatDate(_ date: String) -> String {
         let isoDateFormatter = DateFormatter()
         isoDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -66,6 +70,7 @@ final class TransactionDetailsViewModel: ObservableObject {
         }
     }
 
+    // MARK: - Document Formatting Methods
     func formattedDocumentNumber(_ documentNumber: String) -> String {
         if documentNumber.isCPF {
             return formatCPF(documentNumber)

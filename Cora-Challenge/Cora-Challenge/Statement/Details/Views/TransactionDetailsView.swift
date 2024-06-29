@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct TransactionDetailsView: View {
+    // MARK: - Properties
     @StateObject var viewModel = TransactionDetailsViewModel()
     let transactionId: String
     let transactionType: Entry
 
+    // MARK: - Body
     var body: some View {
         Group {
             switch viewModel.state {
@@ -28,7 +30,6 @@ struct TransactionDetailsView: View {
                             partySection(title: "For", details: details.recipient)
                             descriptionSection(details)
                         }
-                        
                     }
                     Spacer()
                     shareButton
@@ -46,6 +47,7 @@ struct TransactionDetailsView: View {
         .navigationBarTitle("Detalhes da transferência", displayMode: .inline)
     }
 
+    // MARK: - Sections Views
     private func headerView(_ details: TransactionDetailsResponse) -> some View {
         HStack {
             icon(for: transactionType)
@@ -122,6 +124,7 @@ struct TransactionDetailsView: View {
         }
     }
 
+    // MARK: - Helpers
     private func icon(for entry: Entry) -> Image {
         switch entry {
         case .debit:

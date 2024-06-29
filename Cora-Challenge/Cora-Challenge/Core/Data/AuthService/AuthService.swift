@@ -15,7 +15,7 @@ protocol AuthServiceProtocol {
 class AuthService: AuthServiceProtocol {
     private let apiClient: ApiClientProtocol
 
-    init(apiClient: ApiClientProtocol = ApiClient()) {
+    init(apiClient: ApiClientProtocol = ApiClient.shared) {
         self.apiClient = apiClient
     }
 

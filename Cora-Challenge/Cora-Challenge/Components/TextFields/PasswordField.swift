@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/// A custom view that provides a secure text field for password entry with an option to toggle visibility.
+/// - Parameters:
+///   - placeholder: The placeholder text to display when the text field is empty.
+///   - text: A binding to the text entered by the user.
 struct PasswordField: View {
     @Binding private var text: String
     @State private var isSecured: Bool = true

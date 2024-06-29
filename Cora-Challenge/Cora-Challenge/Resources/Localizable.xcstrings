@@ -86,7 +86,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Houve um problema, por favor, tentei novamente!"
+            "value" : "Houve um problema, por favor, tente novamente!"
           }
         }
       }
@@ -204,6 +204,17 @@
     "Quero fazer parte!" : {
 
     },
+    "Retry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tentar Novamente"
+          }
+        }
+      }
+    },
     "ShareReceipt" : {
       "localizations" : {
         "pt-BR" : {
@@ -246,9 +257,6 @@
           }
         }
       }
-    },
-    "Tentar Novamente" : {
-
     },
     "Value" : {
       "extractionState" : "manual",

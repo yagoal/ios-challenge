@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TransactionCellViewData {
+struct TransactionCellViewData: Equatable {
     let id: String
     let color: Color
     let icon: Image

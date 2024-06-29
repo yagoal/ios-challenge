@@ -18,7 +18,7 @@ struct ErrorView: View {
                 .foregroundColor(.red)
                 .padding()
             Spacer()
-            CoraButton("Tentar Novamente", action: retryAction)
+            CoraButton("Retry", action: retryAction)
                 .padding()
          
         }

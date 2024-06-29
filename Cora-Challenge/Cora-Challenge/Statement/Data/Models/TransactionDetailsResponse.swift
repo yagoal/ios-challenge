@@ -7,9 +7,7 @@
 
 import Foundation
 
-import Foundation
-
-struct TransactionDetailsResponse: Decodable {
+struct TransactionDetailsResponse: Equatable, Decodable {
     let id: String
     let description: String
     let label: String
@@ -21,7 +19,7 @@ struct TransactionDetailsResponse: Decodable {
     let status: String
 }
 
-struct AccountDetails: Decodable {
+struct AccountDetails:Equatable, Decodable {
     let bankName: String
     let bankNumber: String
     let documentNumber: String

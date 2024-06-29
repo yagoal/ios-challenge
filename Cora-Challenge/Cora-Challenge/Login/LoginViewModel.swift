@@ -4,6 +4,7 @@
 //
 //  Created by Yago Augusto Guedes Pereira on 25/06/24.
 //
+
 import Foundation
 import Combine
 
@@ -65,7 +66,7 @@ final class LoginViewModel: ObservableObject {
     }
 
     // MARK: - Validation Methods
-    private func validate(_ text: String, for fieldType: FieldType) -> Bool {
+    func validate(_ text: String, for fieldType: FieldType) -> Bool {
         switch fieldType {
         case .cpf:
             let cleanedText = text.filter { $0.isNumber }
