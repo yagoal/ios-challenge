@@ -10,8 +10,26 @@ import Foundation
 
 struct TransactionStubs {
     static let transactionItems: [TransactionItem] = [
-        TransactionItem(id: "1", description: "Test Transaction 1", label: "Label 1", entry: .credit, amount: 100, name: "Test 1", dateEvent: "2022-01-01", status: "completed"),
-        TransactionItem(id: "2", description: "Test Transaction 2", label: "Label 2", entry: .debit, amount: 50, name: "Test 2", dateEvent: "2022-01-01", status: "completed")
+        TransactionItem(
+            id: "1",
+            description: "Test Transaction 1",
+            label: "Label 1",
+            entry: .credit,
+            amount: 100,
+            name: "Test 1",
+            dateEvent: "2022-01-01",
+            status: "completed"
+        ),
+        TransactionItem(
+            id: "2",
+            description: "Test Transaction 2",
+            label: "Label 2",
+            entry: .debit,
+            amount: 50,
+            name: "Test 2",
+            dateEvent: "2022-01-01",
+            status: "completed"
+        )
     ]
 
     static let transactionResults: [TransactionResult] = [

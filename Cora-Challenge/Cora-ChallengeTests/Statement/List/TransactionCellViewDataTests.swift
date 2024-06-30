@@ -46,7 +46,7 @@ final class TransactionCellViewDataTests: XCTestCase {
             expectedId: "1",
             expectedColor: .primaryBlue,
             expectedIcon: Image(Icons.credit.rawValue),
-            expectedAmount: formattedCurrency(amount: 500),
+            expectedAmount: 500.formattedCurrencyAmount,
             expectedLabel: "Credit Transaction",
             expectedName: "John Doe",
             expectedHour: formattedHour(dateEvent: transaction.dateEvent)
@@ -75,7 +75,7 @@ final class TransactionCellViewDataTests: XCTestCase {
             expectedId: "2",
             expectedColor: .black,
             expectedIcon: Image(Icons.debit.rawValue),
-            expectedAmount: formattedCurrency(amount: 800),
+            expectedAmount: 800.formattedCurrencyAmount,
             expectedLabel: "Debit Transaction",
             expectedName: "Jane Doe",
             expectedHour: formattedHour(dateEvent: transaction.dateEvent)
@@ -104,14 +104,23 @@ final class TransactionCellViewDataTests: XCTestCase {
             expectedId: "3",
             expectedColor: .gray,
             expectedIcon: Image(systemName: "questionmark.circle"),
-            expectedAmount: formattedCurrency(amount: 30000),
+            expectedAmount: 30000.formattedCurrencyAmount,
             expectedLabel: "Unknown Type",
             expectedName: "Casey Smith",
             expectedHour: formattedHour(dateEvent: transaction.dateEvent)
         )
     }
 
-    private func assertTransactionViewData(sut: TransactionCellViewData, expectedId: String, expectedColor: Color, expectedIcon: Image, expectedAmount: String, expectedLabel: String, expectedName: String, expectedHour: String) {
+    private func assertTransactionViewData(
+        sut: TransactionCellViewData,
+        expectedId: String,
+        expectedColor: Color,
+        expectedIcon: Image,
+        expectedAmount: String,
+        expectedLabel: String,
+        expectedName: String,
+        expectedHour: String
+    ) {
         XCTAssertEqual(sut.id, expectedId)
         XCTAssertEqual(sut.color, expectedColor)
         XCTAssertEqual(sut.icon, expectedIcon)
@@ -136,13 +145,5 @@ final class TransactionCellViewDataTests: XCTestCase {
         outputFormatter.timeZone = TimeZone.current
 
         return outputFormatter.string(from: date)
-    }
-
-    private func formattedCurrency(amount: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencyCode = "BRL"
-        formatter.locale = Locale(identifier: "pt_BR")
-        return formatter.string(from: NSNumber(value: amount / 100)) ?? ""
     }
 }
