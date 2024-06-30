@@ -34,6 +34,9 @@ struct StatementListView: View {
                 EmptyView()
             }
         }
+        .refreshable {
+            viewModel.fetchTransactions()
+        }
         .onAppear {
             viewModel.fetchTransactions()
         }
