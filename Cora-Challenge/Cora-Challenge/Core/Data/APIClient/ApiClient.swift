@@ -165,7 +165,7 @@ final class ApiClient: ApiClientProtocol {
     ) -> AnyPublisher<T, Error> {
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { [weak self] output in
-                guard let self = self, let response = output.response as? HTTPURLResponse else {
+                guard let self, let response = output.response as? HTTPURLResponse else {
                     throw URLError(.badServerResponse)
                 }
 
@@ -181,8 +181,8 @@ final class ApiClient: ApiClientProtocol {
                 }
                 return output.data
             }
-            .tryMap { data in
-                if let jsonString = self.prettyPrintedJSON(data), isPrint {
+            .tryMap { [weak self] data in
+                if let jsonString = self?.prettyPrintedJSON(data), isPrint {
                     print("Response JSON: \(jsonString)")
                 }
                 return data
