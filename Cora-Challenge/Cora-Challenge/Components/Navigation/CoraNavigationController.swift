@@ -39,7 +39,7 @@ final class CoraNavigationController: UINavigationController {
         appearance.shadowColor = .clear
         appearance.titleTextAttributes = [
             .foregroundColor: UIColor(Color.neutralHigh),
-            .font: UIFont(name: "Avenir", size: 14) ?? UIFont.systemFont(ofSize: 14)
+            .font: UIFont.avenir(size: 14)
         ]
         let barAppearance = UIBarButtonItemAppearance()
         barAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]

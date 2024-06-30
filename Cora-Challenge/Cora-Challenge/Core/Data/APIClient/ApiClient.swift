@@ -68,8 +68,37 @@ final class ApiClient: ApiClientProtocol {
         isLoginRequest: Bool = false,
         isPrint: Bool = true
     ) -> AnyPublisher<T, Error> {
-        guard let baseURL = URL(string: baseURLString) else {
+        guard let request = createRequest(
+            path: path,
+            method: method,
+            body: body,
+            customHeaders: customHeaders,
+            isLoginRequest: isLoginRequest,
+            isPrint: isPrint
+        ) else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+        }
+        
+        return performRequest(request, responseType: responseType, isPrint: isPrint)
+            .catch { [weak self] error -> AnyPublisher<T, Error> in
+                guard let self, case NetworkError.userAuthenticationRequired = error else {
+                    return Fail(error: error).eraseToAnyPublisher()
+                }
+                return renewTokenAndRetry(request: request, responseType: responseType)
+            }
+            .eraseToAnyPublisher()
+    }
+
+    private func createRequest(
+        path: String,
+        method: HTTPMethod,
+        body: Encodable?,
+        customHeaders: [String: String]?,
+        isLoginRequest: Bool,
+        isPrint: Bool
+    ) -> URLRequest? {
+        guard let baseURL = URL(string: baseURLString) else {
+            return nil
         }
         
         let endpoint = baseURL.appendingPathComponent(path)
@@ -99,14 +128,7 @@ final class ApiClient: ApiClientProtocol {
             }
         }
         
-        return performRequest(request, responseType: responseType, isPrint: isPrint)
-            .catch { [weak self] error -> AnyPublisher<T, Error> in
-                guard let self, case NetworkError.userAuthenticationRequired = error else {
-                    return Fail(error: error).eraseToAnyPublisher()
-                }
-                return renewTokenAndRetry(request: request, responseType: responseType)
-            }
-            .eraseToAnyPublisher()
+        return request
     }
 
     /// Makes a network request with only the required parameters and returns a publisher with the response.
