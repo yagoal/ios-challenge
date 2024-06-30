@@ -98,7 +98,6 @@ final class StatementListViewModelTests: XCTestCase {
             .dropFirst()
             .sink { state in
                 if case .error = state {
-                    XCTAssertTrue(true)
                     expectation.fulfill()
                 }
             }
@@ -153,7 +152,7 @@ final class StatementListViewModelTests: XCTestCase {
         // then
         if case let .success(sortedTransactions) = sut.state {
             let dates = sortedTransactions.keys.sorted(by: >)
-            XCTAssertEqual(dates, ["2022-01-02", "2022-01-01"], "Transactions should be sorted by date descending.")
+            XCTAssertEqual(dates, ["2022-01-02", "2022-01-01"])
         } else {
             XCTFail("State should be .success with sorted transactions")
         }
@@ -171,7 +170,7 @@ final class StatementListViewModelTests: XCTestCase {
         // then
         if case let .success(sortedTransactions) = sut.state {
             let dates = sortedTransactions.keys.sorted(by: <)
-            XCTAssertEqual(dates, ["2022-01-01", "2022-01-02"], "Transactions should be sorted by date ascending.")
+            XCTAssertEqual(dates, ["2022-01-01", "2022-01-02"])
         } else {
             XCTFail("State should be .success with sorted transactions")
         }
@@ -189,7 +188,7 @@ final class StatementListViewModelTests: XCTestCase {
         // Then
         let displayFormatter = configureDateFormatter(withFormat: "EEEE - dd 'de' MMMM")
         let expectedFormattedDate = "Hoje - \(displayFormatter.string(from: today))"
-        XCTAssertEqual(formatted, expectedFormattedDate, "Formatted string should include 'Hoje' with the formatted date.")
+        XCTAssertEqual(formatted, expectedFormattedDate)
     }
 
     func test_formatSectionDate_forYesterday_returnsFormattedYesterday() {
@@ -204,7 +203,7 @@ final class StatementListViewModelTests: XCTestCase {
         // Then
         let displayFormatter = configureDateFormatter(withFormat: "EEEE - dd 'de' MMMM")
         let expectedFormattedDate = "Ontem - \(displayFormatter.string(from: yesterday))"
-        XCTAssertEqual(formatted, expectedFormattedDate, "Formatted string should include 'Ontem' with the formatted date.")
+        XCTAssertEqual(formatted, expectedFormattedDate)
     }
 
     func test_formatSectionDate_forRandomPastDate_returnsFormattedDate() {
@@ -219,10 +218,14 @@ final class StatementListViewModelTests: XCTestCase {
         // Then
         let displayFormatter = configureDateFormatter(withFormat: "EEEE - dd 'de' MMMM yyyy")
         let expectedFormattedDate = displayFormatter.string(from: randomPastDate)
-        XCTAssertEqual(formatted, expectedFormattedDate, "Formatted string should include the full date for past dates not within this year.")
+        XCTAssertEqual(formatted, expectedFormattedDate)
     }
 
-    private func configureDateFormatter(withFormat format: String, locale: String = "pt_BR", timeZone: TimeZone = TimeZone.current) -> DateFormatter {
+    private func configureDateFormatter(
+        withFormat format: String,
+        locale: String = "pt_BR",
+        timeZone: TimeZone = TimeZone.current
+    ) -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         formatter.locale = Locale(identifier: locale)

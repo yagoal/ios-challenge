@@ -7,6 +7,8 @@
 
 import Combine
 import XCTest
+import PDFKit
+
 @testable import Cora_Challenge
 
 final class TransactionDetailsViewModelTests: XCTestCase {
@@ -118,9 +120,8 @@ final class TransactionDetailsViewModelTests: XCTestCase {
         displayFormatter.locale = Locale(identifier: "pt_BR")
         let expectedFormattedDate = displayFormatter.string(from: randomPastDate)
         
-        XCTAssertEqual(formattedDate, expectedFormattedDate, "Formatted string should match expected date format for a random past date")
+        XCTAssertEqual(formattedDate, expectedFormattedDate)
     }
-
 
     func test_givenValidCPF_whenFormatCPF_thenReturnsFormattedCPF() {
         // Given
@@ -142,6 +143,27 @@ final class TransactionDetailsViewModelTests: XCTestCase {
 
         // Then
         XCTAssertEqual(formattedCNPJ, "72.952.406/0001-85")
+    }
+
+    func test_givenTransactionDetails_whenGeneratePDF_thenReturnsNonNilDataWithCorrectAttributes() throws {
+        // Given
+        let details = TransactionStubs.transactionDetailsResponse
+
+        // When
+        let pdfData = sut.generatePDF(details: details)
+
+        // Then
+        let data = try XCTUnwrap(pdfData, "PDF data should not be nil")
+        let document = try XCTUnwrap(PDFDocument(data: data), "Failed to create PDFDocument from data")
+        let attributes = document.documentAttributes
+
+        let expectedTitle = "Comprovante de Transferência"
+        let expectedCreator = "Cora Bank"
+        let expectedAuthor = "corabank.com.br"
+
+        XCTAssertEqual(attributes?[PDFDocumentAttribute.titleAttribute] as? String, expectedTitle)
+        XCTAssertEqual(attributes?[PDFDocumentAttribute.creatorAttribute] as? String, expectedCreator)
+        XCTAssertEqual(attributes?[PDFDocumentAttribute.authorAttribute] as? String, expectedAuthor)
     }
 
     private func formattedDateString(from date: Date) -> String {

@@ -12,6 +12,9 @@ struct TransactionDetailsView: View {
     @StateObject var viewModel = TransactionDetailsViewModel()
     let transactionId: String
     let transactionType: Entry
+    let onTapShareShareReceipt: (_ item: [Any]) -> Void
+    @State private var showShareSheet = false
+    @State private var pdfData: Data?
 
     // MARK: - Body
     var body: some View {
@@ -26,13 +29,13 @@ struct TransactionDetailsView: View {
                             headerView(details)
                             valueSection(details)
                             dateSection(details)
-                            partySection(title: "In", details: details.sender)
-                            partySection(title: "For", details: details.recipient)
+                            partySection(title: "De", details: details.sender)
+                            partySection(title: "Para", details: details.recipient)
                             descriptionSection(details)
                         }
                     }
                     Spacer()
-                    shareButton
+                    shareButton(details)
                 }
                 .padding(24)
             case .error(_):
@@ -59,7 +62,7 @@ struct TransactionDetailsView: View {
 
     private func valueSection(_ details: TransactionDetailsResponse) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Value")
+            Text("Valor")
                 .font(.avenirBodyRegular(size: 14))
                 .foregroundColor(.neutral)
             Text(details.amount.formattedCurrencyAmount)
@@ -70,17 +73,16 @@ struct TransactionDetailsView: View {
 
     private func dateSection(_ details: TransactionDetailsResponse) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Date")
+            Text("Data")
                 .font(.avenirBodyRegular(size: 14))
                 .foregroundColor(.neutral)
-
             Text(viewModel.formatDate(details.dateEvent))
                 .font(.avenirBodyBold(size: 16))
                 .foregroundColor(.neutralHigh)
         }
     }
 
-    private func partySection(title: LocalizedStringKey, details: AccountDetails) -> some View {
+    private func partySection(title: String, details: AccountDetails) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
                 .font(.avenirBodyRegular(size: 14))
@@ -104,7 +106,7 @@ struct TransactionDetailsView: View {
 
     private func descriptionSection(_ details: TransactionDetailsResponse) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Description")
+            Text("Descrição")
                 .font(.avenirBodyRegular(size: 14))
                 .foregroundColor(.neutral)
             Text(details.description)
@@ -113,14 +115,16 @@ struct TransactionDetailsView: View {
         }
     }
 
-    private var shareButton: some View {
+    private func shareButton(_ details: TransactionDetailsResponse) -> some View {
         CoraButton(
             "ShareReceipt",
             color: .primary,
             icon: .share,
             size: .medium
         ) {
-            // Implement share action
+            if let pdfData = viewModel.generatePDF(details: details) {
+                onTapShareShareReceipt([pdfData])
+            }
         }
     }
 
@@ -137,6 +141,13 @@ struct TransactionDetailsView: View {
     }
 }
 
-#Preview {
-    TransactionDetailsView(viewModel: TransactionDetailsViewModel(), transactionId: "abcdef12-3456-7890-abcd-ef1234567890", transactionType: .debit)
+struct TransactionDetailsView_Previews: PreviewProvider {
+    static var previews: some View {
+        TransactionDetailsView(
+            viewModel: TransactionDetailsViewModel(),
+            transactionId: "abcdef12-3456-7890-abcd-ef1234567890",
+            transactionType: .debit,
+            onTapShareShareReceipt: { _ in }
+        )
+    }
 }

@@ -14,6 +14,7 @@
 		201AB73C2C2F4E3B00CBD5DE /* TransactionStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AB73B2C2F4E3B00CBD5DE /* TransactionStubs.swift */; };
 		201AB73F2C2F547700CBD5DE /* TransactionDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AB73E2C2F547700CBD5DE /* TransactionDetailsViewModelTests.swift */; };
 		201AB7412C30772F00CBD5DE /* TransactionCellViewDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AB7402C30772F00CBD5DE /* TransactionCellViewDataTests.swift */; };
+		201AB9C32C308F2F00CBD5DE /* CustomActivityItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AB9C22C308F2F00CBD5DE /* CustomActivityItemSource.swift */; };
 		20CC52E32C2C97370039F565 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC52E22C2C97370039F565 /* AuthResponse.swift */; };
 		20CC55632C2C99730039F565 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC55622C2C99730039F565 /* ApiClient.swift */; };
 		20CC55652C2C9A490039F565 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC55642C2C9A490039F565 /* AuthService.swift */; };
@@ -40,8 +41,6 @@
 		20F705DF2C2B6AFE00E5C96A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20F705DE2C2B6AFE00E5C96A /* Assets.xcassets */; };
 		20F705E32C2B6AFE00E5C96A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20F705E22C2B6AFE00E5C96A /* Preview Assets.xcassets */; };
 		20F705ED2C2B6AFE00E5C96A /* Cora_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705EC2C2B6AFE00E5C96A /* Cora_ChallengeTests.swift */; };
-		20F705F72C2B6AFE00E5C96A /* Cora_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705F62C2B6AFE00E5C96A /* Cora_ChallengeUITests.swift */; };
-		20F705F92C2B6AFE00E5C96A /* Cora_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F705F82C2B6AFE00E5C96A /* Cora_ChallengeUITestsLaunchTests.swift */; };
 		20F706072C2B781500E5C96A /* CoraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F706062C2B781500E5C96A /* CoraButton.swift */; };
 		20F706092C2B79EA00E5C96A /* Colors+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F706082C2B79EA00E5C96A /* Colors+Extension.swift */; };
 		20F708862C2B7B2A00E5C96A /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F708852C2B7B2A00E5C96A /* Font+Extension.swift */; };
@@ -66,13 +65,6 @@
 			remoteGlobalIDString = 20F705D62C2B6AFC00E5C96A;
 			remoteInfo = "Cora-Challenge";
 		};
-		20F705F32C2B6AFE00E5C96A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 20F705CF2C2B6AFC00E5C96A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 20F705D62C2B6AFC00E5C96A;
-			remoteInfo = "Cora-Challenge";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +75,8 @@
 		201AB73B2C2F4E3B00CBD5DE /* TransactionStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStubs.swift; sourceTree = "<group>"; };
 		201AB73E2C2F547700CBD5DE /* TransactionDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		201AB7402C30772F00CBD5DE /* TransactionCellViewDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewDataTests.swift; sourceTree = "<group>"; };
+		201AB9C02C308BFF00CBD5DE /* Cora_Challenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cora_Challenge.entitlements; sourceTree = "<group>"; };
+		201AB9C22C308F2F00CBD5DE /* CustomActivityItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityItemSource.swift; sourceTree = "<group>"; };
 		20CC52E22C2C97370039F565 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		20CC55622C2C99730039F565 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		20CC55642C2C9A490039F565 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -108,13 +102,9 @@
 		20F705DA2C2B6AFC00E5C96A /* Cora_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cora_ChallengeApp.swift; sourceTree = "<group>"; };
 		20F705DC2C2B6AFC00E5C96A /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		20F705DE2C2B6AFE00E5C96A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		20F705E02C2B6AFE00E5C96A /* Cora_Challenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cora_Challenge.entitlements; sourceTree = "<group>"; };
 		20F705E22C2B6AFE00E5C96A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		20F705E82C2B6AFE00E5C96A /* Cora-ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cora-ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20F705EC2C2B6AFE00E5C96A /* Cora_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cora_ChallengeTests.swift; sourceTree = "<group>"; };
-		20F705F22C2B6AFE00E5C96A /* Cora-ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cora-ChallengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		20F705F62C2B6AFE00E5C96A /* Cora_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cora_ChallengeUITests.swift; sourceTree = "<group>"; };
-		20F705F82C2B6AFE00E5C96A /* Cora_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cora_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		20F706062C2B781500E5C96A /* CoraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoraButton.swift; sourceTree = "<group>"; };
 		20F706082C2B79EA00E5C96A /* Colors+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extension.swift"; sourceTree = "<group>"; };
 		20F708852C2B7B2A00E5C96A /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
@@ -140,13 +130,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		20F705E52C2B6AFE00E5C96A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		20F705EF2C2B6AFE00E5C96A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -199,6 +182,24 @@
 				201AB73E2C2F547700CBD5DE /* TransactionDetailsViewModelTests.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		201AB7422C307F8E00CBD5DE /* StateViews */ = {
+			isa = PBXGroup;
+			children = (
+				20CC58002C2CFDCD0039F565 /* ErrorView.swift */,
+				20CC556D2C2CB7D90039F565 /* ShimmerView.swift */,
+				20CC58022C2CFE640039F565 /* EmptyStateView.swift */,
+			);
+			path = StateViews;
+			sourceTree = "<group>";
+		};
+		201AB9C12C308F2000CBD5DE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				201AB9C22C308F2F00CBD5DE /* CustomActivityItemSource.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		20CC52E42C2C97570039F565 /* APIClient */ = {
@@ -279,6 +280,7 @@
 		20CC5A802C2DE5480039F565 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				201AB9C12C308F2000CBD5DE /* Helper */,
 				20CC5A872C2DE8060039F565 /* Views */,
 				20CC5A832C2DE68C0039F565 /* TransactionDetailsViewModel.swift */,
 			);
@@ -299,7 +301,6 @@
 			children = (
 				20F705D92C2B6AFC00E5C96A /* Cora-Challenge */,
 				20F705EB2C2B6AFE00E5C96A /* Cora-ChallengeTests */,
-				20F705F52C2B6AFE00E5C96A /* Cora-ChallengeUITests */,
 				20F705D82C2B6AFC00E5C96A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -309,7 +310,6 @@
 			children = (
 				20F705D72C2B6AFC00E5C96A /* Cora-Challenge.app */,
 				20F705E82C2B6AFE00E5C96A /* Cora-ChallengeTests.xctest */,
-				20F705F22C2B6AFE00E5C96A /* Cora-ChallengeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -317,11 +317,11 @@
 		20F705D92C2B6AFC00E5C96A /* Cora-Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				201AB9C02C308BFF00CBD5DE /* Cora_Challenge.entitlements */,
 				20CC55692C2CB0970039F565 /* Statement */,
 				20F708842C2B7AFA00E5C96A /* Extensions */,
 				20F706052C2B77CB00E5C96A /* Components */,
 				20F705E12C2B6AFE00E5C96A /* Preview Content */,
-				20F705E02C2B6AFE00E5C96A /* Cora_Challenge.entitlements */,
 				20F7100D2C2C479F00E5C96A /* Resources */,
 				20F70D842C2B97DE00E5C96A /* Login */,
 				20F70D832C2B8D0400E5C96A /* Start */,
@@ -348,24 +348,13 @@
 			path = "Cora-ChallengeTests";
 			sourceTree = "<group>";
 		};
-		20F705F52C2B6AFE00E5C96A /* Cora-ChallengeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				20F705F62C2B6AFE00E5C96A /* Cora_ChallengeUITests.swift */,
-				20F705F82C2B6AFE00E5C96A /* Cora_ChallengeUITestsLaunchTests.swift */,
-			);
-			path = "Cora-ChallengeUITests";
-			sourceTree = "<group>";
-		};
 		20F706052C2B77CB00E5C96A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				20CC58002C2CFDCD0039F565 /* ErrorView.swift */,
+				201AB7422C307F8E00CBD5DE /* StateViews */,
 				20F7128E2C2C682D00E5C96A /* Navigation */,
 				20F710072C2BAF2700E5C96A /* TextFields */,
 				20F70D7B2C2B840E00E5C96A /* CoraButton */,
-				20CC556D2C2CB7D90039F565 /* ShimmerView.swift */,
-				20CC58022C2CFE640039F565 /* EmptyStateView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -509,24 +498,6 @@
 			productReference = 20F705E82C2B6AFE00E5C96A /* Cora-ChallengeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		20F705F12C2B6AFE00E5C96A /* Cora-ChallengeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 20F706022C2B6AFE00E5C96A /* Build configuration list for PBXNativeTarget "Cora-ChallengeUITests" */;
-			buildPhases = (
-				20F705EE2C2B6AFE00E5C96A /* Sources */,
-				20F705EF2C2B6AFE00E5C96A /* Frameworks */,
-				20F705F02C2B6AFE00E5C96A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				20F705F42C2B6AFE00E5C96A /* PBXTargetDependency */,
-			);
-			name = "Cora-ChallengeUITests";
-			productName = "Cora-ChallengeUITests";
-			productReference = 20F705F22C2B6AFE00E5C96A /* Cora-ChallengeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -541,10 +512,6 @@
 						CreatedOnToolsVersion = 15.4;
 					};
 					20F705E72C2B6AFE00E5C96A = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 20F705D62C2B6AFC00E5C96A;
-					};
-					20F705F12C2B6AFE00E5C96A = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 20F705D62C2B6AFC00E5C96A;
 					};
@@ -566,7 +533,6 @@
 			targets = (
 				20F705D62C2B6AFC00E5C96A /* Cora-Challenge */,
 				20F705E72C2B6AFE00E5C96A /* Cora-ChallengeTests */,
-				20F705F12C2B6AFE00E5C96A /* Cora-ChallengeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -583,13 +549,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		20F705E62C2B6AFE00E5C96A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		20F705F02C2B6AFE00E5C96A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -616,6 +575,7 @@
 				20CC557A2C2CBD0B0039F565 /* TransactionResult.swift in Sources */,
 				20CC557C2C2CBE140039F565 /* HTTPMethod.swift in Sources */,
 				20CC5A862C2DE8020039F565 /* TransactionDetailsPlaceholderView.swift in Sources */,
+				201AB9C32C308F2F00CBD5DE /* CustomActivityItemSource.swift in Sources */,
 				20F708862C2B7B2A00E5C96A /* Font+Extension.swift in Sources */,
 				20CC5A822C2DE5D80039F565 /* TransactionDetailsResponse.swift in Sources */,
 				20CC58032C2CFE640039F565 /* EmptyStateView.swift in Sources */,
@@ -657,15 +617,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		20F705EE2C2B6AFE00E5C96A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				20F705F72C2B6AFE00E5C96A /* Cora_ChallengeUITests.swift in Sources */,
-				20F705F92C2B6AFE00E5C96A /* Cora_ChallengeUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -673,11 +624,6 @@
 			isa = PBXTargetDependency;
 			target = 20F705D62C2B6AFC00E5C96A /* Cora-Challenge */;
 			targetProxy = 20F705E92C2B6AFE00E5C96A /* PBXContainerItemProxy */;
-		};
-		20F705F42C2B6AFE00E5C96A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 20F705D62C2B6AFC00E5C96A /* Cora-Challenge */;
-			targetProxy = 20F705F32C2B6AFE00E5C96A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -918,50 +864,6 @@
 			};
 			name = Release;
 		};
-		20F706032C2B6AFE00E5C96A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JNXAHZ4P2R;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yagoaugusto.Cora-ChallengeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Cora-Challenge";
-			};
-			name = Debug;
-		};
-		20F706042C2B6AFE00E5C96A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JNXAHZ4P2R;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yagoaugusto.Cora-ChallengeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Cora-Challenge";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -988,15 +890,6 @@
 			buildConfigurations = (
 				20F706002C2B6AFE00E5C96A /* Debug */,
 				20F706012C2B6AFE00E5C96A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		20F706022C2B6AFE00E5C96A /* Build configuration list for PBXNativeTarget "Cora-ChallengeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				20F706032C2B6AFE00E5C96A /* Debug */,
-				20F706042C2B6AFE00E5C96A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

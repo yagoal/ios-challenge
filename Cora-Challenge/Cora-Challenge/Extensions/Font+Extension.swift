@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 extension Font {
     static func avenir(size: CGFloat = 16, weight: Font.Weight = .regular) -> Font {
@@ -18,5 +19,18 @@ extension Font {
 
     static func avenirBodyBold(size: CGFloat = 16) -> Font {
         return avenir(size: size, weight: .bold)
+    }
+}
+
+extension UIFont {
+    static func avenir(size: CGFloat, weight: UIFont.Weight = .regular) -> UIFont {
+        switch weight {
+        case .bold:
+            return UIFont(name: "Avenir-Black", size: size) ?? .systemFont(ofSize: size, weight: weight)
+        case .medium:
+            return UIFont(name: "Avenir-Medium", size: size) ?? .systemFont(ofSize: size, weight: weight)
+        default:
+            return UIFont(name: "Avenir-Book", size: size) ?? .systemFont(ofSize: size, weight: weight)
+        }
     }
 }

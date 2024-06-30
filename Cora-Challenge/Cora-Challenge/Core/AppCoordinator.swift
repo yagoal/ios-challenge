@@ -61,7 +61,8 @@ final class AppCoordinator: ObservableObject {
     func showStatementDetails(id: String, transactionType: Entry) {
         let detailsView = TransactionDetailsView(
             transactionId: id,
-            transactionType: transactionType
+            transactionType: transactionType,
+            onTapShareShareReceipt: { [weak self] items in self?.showShareReceipt(items: items) }
         )
 
         let host = UIHostingController(rootView: detailsView)
@@ -70,9 +71,20 @@ final class AppCoordinator: ObservableObject {
         push(controller: host)
     }
 
+    func showShareReceipt(items: [Any]) {
+        let customItems = items.map { CustomActivityItemSource(item: $0) }
+        let controller = UIActivityViewController(activityItems: customItems, applicationActivities: nil)
+        controller.modalPresentationStyle = .formSheet
+        present(controller: controller)
+    }
+
     // MARK: - Action Methods
     private func push(controller: UIViewController) {
         rootViewController.pushViewController(controller, animated: true)
+    }
+    
+    private func present(controller: UIViewController) {
+        rootViewController.present(controller, animated: true)
     }
 
     @objc func pop() {

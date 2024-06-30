@@ -187,16 +187,7 @@ final class ApiClient: ApiClientProtocol {
                 }
                 return data
             }
-            .flatMap { data -> AnyPublisher<T, Error> in
-                do {
-                    let decodedResponse = try JSONDecoder().decode(T.self, from: data)
-                    return Just(decodedResponse)
-                        .setFailureType(to: Error.self)
-                        .eraseToAnyPublisher()
-                } catch {
-                    return Fail(error: error).eraseToAnyPublisher()
-                }
-            }
+            .decode(type: T.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 

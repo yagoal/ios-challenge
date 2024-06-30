@@ -77,7 +77,7 @@ struct StartView: View {
                 color: .surface,
                 icon: .arrowRight
             ) {
-                // Ação do botão
+                // No action
             }
 
             CoraButton(

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import PDFKit
 
 enum DetailViewState: Equatable {
     case initial
@@ -95,5 +96,71 @@ final class TransactionDetailsViewModel: ObservableObject {
         let third = number.index(second, offsetBy: 3)
         let fourth = number.index(third, offsetBy: 4)
         return "\(number[..<first]).\(number[first..<second]).\(number[second..<third])/\(number[third..<fourth])-\(number[fourth...])"
+    }
+
+    func generatePDF(details: TransactionDetailsResponse) -> Data? {
+        let pdfMetaData = [
+            kCGPDFContextCreator: "Cora Bank",
+            kCGPDFContextAuthor: "corabank.com.br",
+            kCGPDFContextTitle: "Comprovante de Transferência"
+        ]
+        let format = UIGraphicsPDFRendererFormat()
+        format.documentInfo = pdfMetaData as [String: Any]
+
+        let pageWidth: CGFloat = 300
+        let pageHeight: CGFloat = 400
+        let pageRect = CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight)
+        
+        let renderer = UIGraphicsPDFRenderer(bounds: pageRect, format: format)
+        let data = renderer.pdfData { context in
+            context.beginPage()
+            
+            let titleAttributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.avenir(size: 16, weight: .bold)
+            ]
+
+            let bodyAttributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.avenir(size: 12)
+            ]
+
+            // Centralizar o logo
+            if let logo = UIImage(named: "cora-logo-black") {
+                let logoWidth: CGFloat = 100
+                let logoHeight: CGFloat = 30
+                let logoRect = CGRect(x: (pageRect.width - logoWidth) / 2, y: 20, width: logoWidth, height: logoHeight)
+                logo.draw(in: logoRect)
+            }
+            
+            // Centralizar o título
+            let title = "Detalhes da Transferência"
+            let titleSize = title.size(withAttributes: titleAttributes)
+            title.draw(at: CGPoint(x: (pageRect.width - titleSize.width) / 2, y: 80), withAttributes: titleAttributes)
+            
+            let cardRect = CGRect(x: 20, y: 120, width: pageRect.width - 40, height: pageRect.height - 140)
+            context.cgContext.setFillColor(UIColor.white.cgColor)
+            context.cgContext.addRect(cardRect)
+            context.cgContext.drawPath(using: .fillStroke)
+            
+            context.cgContext.setShadow(offset: CGSize(width: 2, height: 2), blur: 4, color: UIColor.black.cgColor)
+            
+            let items = [
+                "Valor: \(details.amount.formattedCurrencyAmount)",
+                "Data: \(formatDate(details.dateEvent))",
+                "De: \(details.sender.name)",
+                "CNPJ: \(formattedDocumentNumber(details.sender.documentNumber))",
+                "Para: \(details.recipient.name)",
+                "CNPJ: \(formattedDocumentNumber(details.recipient.documentNumber))",
+                "Descrição: \(details.description)"
+            ]
+            
+            var yPosition = cardRect.origin.y + 20
+            for item in items {
+                let itemRect = CGRect(x: cardRect.origin.x + 20, y: yPosition, width: cardRect.width - 40, height: 20)
+                item.draw(in: itemRect, withAttributes: bodyAttributes)
+                yPosition += 30
+            }
+        }
+        
+        return data
     }
 }

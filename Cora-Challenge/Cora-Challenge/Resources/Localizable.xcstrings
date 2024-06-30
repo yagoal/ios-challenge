@@ -24,6 +24,9 @@
     "Algo deu errado" : {
 
     },
+    "Data" : {
+
+    },
     "Date" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -35,7 +38,11 @@
         }
       }
     },
+    "Descrição" : {
+
+    },
     "Description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -257,6 +264,9 @@
           }
         }
       }
+    },
+    "Valor" : {
+
     },
     "Value" : {
       "extractionState" : "manual",

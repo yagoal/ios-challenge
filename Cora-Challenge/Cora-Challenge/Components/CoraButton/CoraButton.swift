@@ -77,7 +77,7 @@ struct CoraButton: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: icon.size, height: icon.size)
-                .foregroundColor(icon.color)
+                .foregroundColor(configuration.color != .primary ? .primary : icon.color)
         }
     }
 
