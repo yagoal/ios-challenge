@@ -11,7 +11,7 @@ struct TransactionCell: View {
     let viewData: TransactionCellViewData
 
     var body: some View {
-        HStack(alignment: .top, spacing: 8) {
+        HStack(alignment: .top, spacing: 16) {
             viewData.icon
 
             HStack {

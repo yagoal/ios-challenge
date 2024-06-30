@@ -75,10 +75,9 @@ final class TransactionDetailsViewModel: ObservableObject {
     func formattedDocumentNumber(_ documentNumber: String) -> String {
         if documentNumber.isCPF {
             return formatCPF(documentNumber)
-        } else if documentNumber.isCNPJ {
+        } else {
             return formatCNPJ(documentNumber)
         }
-        return documentNumber
     }
 
     private func formatCPF(_ number: String) -> String {
