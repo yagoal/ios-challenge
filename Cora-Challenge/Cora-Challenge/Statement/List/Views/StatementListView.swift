@@ -116,7 +116,7 @@ struct StatementListView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text(viewModel.formatSectionDate(date))
-                    .font(.avenirBodyBold(size: 14))
+                    .font(.avenir(size: 12))
                     .foregroundColor(.neutral)
                     .padding(.vertical, 8)
                     .padding(.horizontal, 16)
